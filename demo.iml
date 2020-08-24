@@ -33,6 +33,10 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="twitter4j-async-4.0.7" level="project" />
+    <orderEntry type="library" name="twitter4j-core-4.0.7" level="project" />
+    <orderEntry type="library" name="twitter4j-examples-4.0.7" level="project" />
+    <orderEntry type="library" name="twitter4j-stream-4.0.7" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-thymeleaf:2.3.2.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter:2.3.2.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot:2.3.2.RELEASE" level="project" />

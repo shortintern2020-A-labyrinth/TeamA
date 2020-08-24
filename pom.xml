@@ -84,6 +84,11 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<folders>
+						<folder>src/main/resources/twitter4j.properties</folder>
+					</folders>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
