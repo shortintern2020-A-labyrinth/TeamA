@@ -68,6 +68,8 @@ public class ViewController {
             System.out.println("@" + status.getUser().getScreenName() + ":" + status.getText());
         }
 
+        //TODO: ここで取ってきたLatestTweetIdを保存しておいて、次回からそのidのツイート以降のツイートを拾ってくればOK
+
         return "a";
     }
 }
