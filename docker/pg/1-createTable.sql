@@ -4,6 +4,11 @@ create table users (
   age integer not null
 );
 
+create table emojicode (
+  keyword serial primary key,
+  emoji_code 
+);
+
 insert into users(name, age) values
   ('ichigo.chocomint', 99),
   ('banana.chocomint', 98),
