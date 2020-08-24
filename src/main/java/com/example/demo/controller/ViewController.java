@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.controller;
 
 import java.util.List;
 import java.util.Map;
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(path = "/jdbc/sample")
+@RequestMapping(path = "/")
 public class ViewController {
     private static final Logger LOG = LoggerFactory.getLogger(ViewController.class);
 
