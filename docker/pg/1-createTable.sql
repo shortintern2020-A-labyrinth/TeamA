@@ -37,7 +37,10 @@ create table requestfriend (
   create_at timestamp,
 );
 
-
+create table emojicode (
+  keyword serial primary key,
+  emoji_code
+);
 
 
 insert into users(name, mail, filterlevel) values
@@ -46,3 +49,9 @@ insert into users(name, mail, filterlevel) values
   ('pinapple.chocomint', 'hogehogehoge@hoge.com', 3)
 ;
 
+
+insert into users(name, age) values
+  ('ichigo.chocomint', 99),
+  ('banana.chocomint', 98),
+  ('pinapple.chocomint', 97)
+;
