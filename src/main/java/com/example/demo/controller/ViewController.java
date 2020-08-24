@@ -39,7 +39,7 @@ public class ViewController {
     public String search_keyowrd() throws TwitterException {
         // 初期化
         Twitter twitter = new TwitterFactory().getInstance();
-        Query query = new Query("チンチン");
+        Query query = new Query("うんこ");
 
         QueryResult result = twitter.search(query);
         for (Status status : result.getTweets()) {

@@ -18,10 +18,10 @@ public class DemoApplication implements CommandLineRunner {
 
   @Override // アプリ起動時に実行される。
   public void run(String... strings) throws Exception {
-    jdbcTemplate.execute("CREATE TABLE customers(" +
-            "id SERIAL, first_name VARCHAR(255), last_name VARCHAR(255))");
-
-    jdbcTemplate.update("INSERT INTO customers(first_name, last_name) VALUES ('John','Woo')");
+//    jdbcTemplate.execute("CREATE TABLE customers(" +
+//            "id SERIAL, first_name VARCHAR(255), last_name VARCHAR(255))");
+//
+//    jdbcTemplate.update("INSERT INTO customers(first_name, last_name) VALUES ('John','Woo')");
   }
 
 
