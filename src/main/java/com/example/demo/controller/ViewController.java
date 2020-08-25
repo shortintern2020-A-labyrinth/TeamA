@@ -39,7 +39,7 @@ public class ViewController {
 
     //TODO: Controllerのままか、返り値の型の調整どうするか考える(フロントとの兼ね合い。)
     @RequestMapping(path = "/twitter_to_NLU", method = RequestMethod.GET)
-    public List<String> collect_NLU(@RequestParam(name = "username", defaultValue = "CNN") String username,
+    public List<String> collect_NLU_keywords_from_tweets(@RequestParam(name = "username", defaultValue = "CNN") String username,
                                     @RequestParam(name = "tweet_id", defaultValue = "1000000") long tweet_id
     ) throws TwitterException {
         QueryResult result = search_user(username, tweet_id);
