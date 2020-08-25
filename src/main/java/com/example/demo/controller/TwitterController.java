@@ -29,7 +29,7 @@ public class TwitterController {
 
     @RequestMapping(path = "/search_user", method = RequestMethod.GET)
     public QueryResult search_user(@RequestParam(name = "username", defaultValue = "CNN") String username,
-                              @RequestParam(name = "tweet_id", defaultValue = "1000000") long tweet_id
+                                    @RequestParam(name = "tweet_id", defaultValue = "1000000") long tweet_id
     ) throws TwitterException {
         // 初期化
         Twitter twitter = new TwitterFactory().getInstance();
