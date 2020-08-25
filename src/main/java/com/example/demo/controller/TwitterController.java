@@ -12,7 +12,7 @@ import java.io.IOException;
 public class TwitterController {
 
     @GetMapping("/search_keyword")
-    public String search_keyowrd(@RequestParam(name = "searchword", defaultValue = "チンチン") String searchword) throws TwitterException {
+    public QueryResult search_keyowrd(@RequestParam(name = "searchword", defaultValue = "チンチン") String searchword) throws TwitterException {
         // 初期化
         Twitter twitter = new TwitterFactory().getInstance();
         Query query = new Query(searchword);
@@ -24,11 +24,11 @@ public class TwitterController {
             System.out.println("@" + status.getUser().getScreenName() + ":" + status.getText());
         }
 
-        return "forward:/twitter/to_NLU"; //Controlelr普通はviewのhtmlのどこかを参照するが、forward:をつけると他のコントローラに遷移する。
+        return result;
     }
 
     @RequestMapping(path = "/search_user", method = RequestMethod.GET)
-    public String search_user(@RequestParam(name = "username", defaultValue = "CNN") String username,
+    public QueryResult search_user(@RequestParam(name = "username", defaultValue = "CNN") String username,
                               @RequestParam(name = "tweet_id", defaultValue = "1000000") long tweet_id
     ) throws TwitterException {
         // 初期化
@@ -48,15 +48,6 @@ public class TwitterController {
 
         //TODO: ここで取ってきたLatestTweetIdを保存しておいて、次回からそのidのツイート以降のツイートを拾ってくればOK
 
-        return "forward:/twitter/to_NLU";
-    }
-
-    @RequestMapping(path = "/to_NLU", method = RequestMethod.GET)
-    public String search_user(@RequestParam(name = "username", defaultValue = "CNN") String username,
-                              @RequestParam(name = "tweet_id", defaultValue = "1000000") long tweet_id
-    ) throws IOException {
-
-
-        return "forward:/NLU/test";
+        return result;
     }
 }
