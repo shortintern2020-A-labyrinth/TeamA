@@ -84,6 +84,11 @@
 			<artifactId>ibm-watson</artifactId>
 			<version>8.5.0</version>
 		</dependency>
+		<dependency>
+			<groupId>com.ibm.watson</groupId>
+			<artifactId>visual-recognition</artifactId>
+			<version>8.5.0</version>
+		</dependency>
 	</dependencies>
 
 	<build>
