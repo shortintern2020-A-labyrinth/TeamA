@@ -33,7 +33,6 @@ public class ImageController {
             @RequestParam(name = "img_path", defaultValue = "/Users/NakamuraTsukasa/Desktop/633.png") String img_path
     ) throws FileNotFoundException {
 //        String url = "https://zukan.pokemon.co.jp/zukan-api/up/images/index/94b9fb82b38847b83a8041e9a78989ce.png";
-//        String img_path = "/Users/NakamuraTsukasa/Desktop/634.png";
 
         IamAuthenticator authenticator = new IamAuthenticator("8nwN0eKp7eZ73So4DLdPndp_yv-vtlI27pN1wK2TjVg1");
         VisualRecognition visualRecognition = new VisualRecognition("2019-07-12", authenticator);
@@ -53,22 +52,5 @@ public class ImageController {
 
         return c.getXClass();
 
-//        for (ClassifiedImage image : images) {
-//
-//            List<ClassifierResult> cr = image.getClassifiers();
-//            for (ClassifierResult r : cr) {
-//                // System.err.println(r.getName());
-//                List<ClassResult> cc = r.getClasses();
-//                for (ClassResult c : cc) {
-//                    // System.err.println("ClassResult : " + c);
-//                    System.err.println("ClassName : " + c.getXClass());
-//                    System.err.println("Score : " + c.getScore());
-//                    System.err.println("TypeHierarchy : " + c.getTypeHierarchy());
-//                    System.err.println("---");
-//                }
-//            }
-//        }
-//
-//        return result.toString();
     }
 }
