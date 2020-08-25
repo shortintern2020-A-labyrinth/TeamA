@@ -39,19 +39,26 @@ public class ViewController {
 
     //TODO: Controllerのままか、返り値の型の調整どうするか考える(フロントとの兼ね合い。)
     @RequestMapping(path = "/twitter_to_NLU", method = RequestMethod.GET)
-    public List<String> collect_NLU_keywords_from_tweets(@RequestParam(name = "username", defaultValue = "CNN") String username,
+    public List<String> collect_NLU_keywords_from_tweets(
+                                    @RequestParam(name = "username", defaultValue = "CNN") String username,
                                     @RequestParam(name = "tweet_id", defaultValue = "1000000") long tweet_id
     ) throws TwitterException {
         QueryResult result = search_user(username, tweet_id);
-        List<String> NLU_results = null;
+        ArrayList<String> NLU_results = new ArrayList<>();
 
         for (Status status : result.getTweets()) {
             String tmp = NLU(status.getText());
-            NLU_results.add(tmp);
+            if(tmp != null) {
+                System.out.println(tmp);
+                NLU_results.add(tmp);
+            }
         }
 
         return NLU_results;
     }
+
+
+
 
     // コントローラは関数として呼び出すのはキツイっぽいのでとりま関数として取り出してる。。
     //TODO: TwitterControllerやNLUControllerから共通部分を分離して別クラスとして保持。
