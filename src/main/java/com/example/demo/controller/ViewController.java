@@ -1,8 +1,12 @@
 package com.example.demo.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import com.ibm.cloud.sdk.core.security.IamAuthenticator;
+import com.ibm.watson.natural_language_understanding.v1.NaturalLanguageUnderstanding;
+import com.ibm.watson.natural_language_understanding.v1.model.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,26 +37,32 @@ public class ViewController {
         return list.toString();
     }
 
-    @RequestMapping(path = "/search_keyword", method = RequestMethod.GET)
-    public String search_keyowrd(@RequestParam(name = "searchword", defaultValue = "チンチン") String searchword) throws TwitterException {
-        // 初期化
-        Twitter twitter = new TwitterFactory().getInstance();
-        Query query = new Query(searchword);
+    //TODO: Controllerのままか、返り値の型の調整どうするか考える(フロントとの兼ね合い。)
+    @RequestMapping(path = "/twitter_to_NLU", method = RequestMethod.GET)
+    public List<String> collect_NLU_keywords_from_tweets(
+                                    @RequestParam(name = "username", defaultValue = "CNN") String username,
+                                    @RequestParam(name = "tweet_id", defaultValue = "1000000") long tweet_id
+    ) throws TwitterException {
+        QueryResult result = search_user(username, tweet_id);
+        ArrayList<String> NLU_results = new ArrayList<>();
 
-        QueryResult result = twitter.search(query);
-
-        // for debug. show tweet results on CLI
         for (Status status : result.getTweets()) {
-            System.out.println("@" + status.getUser().getScreenName() + ":" + status.getText());
+            String tmp = NLU(status.getText());
+            if(tmp != null) {
+                System.out.println(tmp);
+                NLU_results.add(tmp);
+            }
         }
 
-        return "a";
+        return NLU_results;
     }
 
-    @RequestMapping(path = "/search_user", method = RequestMethod.GET)
-    public String search_user(@RequestParam(name = "username", defaultValue = "CNN") String username,
-                              @RequestParam(name = "tweet_id", defaultValue = "1000000") long tweet_id
-    ) throws TwitterException {
+
+
+
+    // コントローラは関数として呼び出すのはキツイっぽいのでとりま関数として取り出してる。。
+    //TODO: TwitterControllerやNLUControllerから共通部分を分離して別クラスとして保持。
+    private QueryResult search_user(String username, long tweet_id) throws TwitterException {
         // 初期化
         Twitter twitter = new TwitterFactory().getInstance();
         Query query = new Query();
@@ -63,13 +73,44 @@ public class ViewController {
 
         QueryResult result = twitter.search(query);
 
-        //for debug on CLI.
-        for (Status status : result.getTweets()) {
-            System.out.println("@" + status.getUser().getScreenName() + ":" + status.getText());
+        return result;
+    }
+
+    private String NLU(String text) {
+        IamAuthenticator authenticator = new IamAuthenticator("fVfaYMA7tCh4zInWBhTBb5t69xQryK7ObKl42nampynG");
+        NaturalLanguageUnderstanding naturalLanguageUnderstanding = new NaturalLanguageUnderstanding("2019-07-12", authenticator);
+        naturalLanguageUnderstanding.setServiceUrl("https://api.jp-tok.natural-language-understanding.watson.cloud.ibm.com/instances/ac3df365-93f6-4255-beb8-620d66041251");
+
+        CategoriesOptions categories= new CategoriesOptions.Builder()
+                .limit(3)
+                .build();
+
+        Features features = new Features.Builder()
+                .categories(categories)
+                .build();
+
+        AnalyzeOptions parameters = new AnalyzeOptions.Builder()
+                .text(text)
+                .features(features)
+                .build();
+
+        AnalysisResults response = naturalLanguageUnderstanding
+                .analyze(parameters)
+                .execute()
+                .getResult();
+        List<String> resultCategories = new ArrayList<>();
+        for (CategoriesResult r : response.getCategories()) {
+            if (r.getScore() > 0.7) {
+                String[] splitword = r.getLabel().split("/");
+                resultCategories.add(splitword[splitword.length - 1]);
+            }
         }
 
-        //TODO: ここで取ってきたLatestTweetIdを保存しておいて、次回からそのidのツイート以降のツイートを拾ってくればOK
 
-        return "a";
+//        return resultCategories.toString();
+        return response.getCategories().get(0).getLabel();
     }
+
+
+
 }
