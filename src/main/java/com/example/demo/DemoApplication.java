@@ -9,20 +9,19 @@ import org.springframework.jdbc.core.JdbcTemplate;
 @SpringBootApplication
 public class DemoApplication implements CommandLineRunner {
 
-	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
-	}
+  public static void main(String[] args) {
+    SpringApplication.run(DemoApplication.class, args);
+  }
 
-	@Autowired
-    JdbcTemplate jdbcTemplate;
-    
-    @Override // アプリ起動時に実行される。
-    public void run(String... strings) throws Exception {
-//        jdbcTemplate.execute("CREATE TABLE customers(" +
-//                "id SERIAL, first_name VARCHAR(255), last_name VARCHAR(255))");
+  @Autowired
+  JdbcTemplate jdbcTemplate;
+
+  @Override // アプリ起動時に実行される。
+  public void run(String... strings) throws Exception {
+//    jdbcTemplate.execute("CREATE TABLE customers(" +
+//            "id SERIAL, first_name VARCHAR(255), last_name VARCHAR(255))");
 //
-//        jdbcTemplate.update("INSERT INTO customers(first_name, last_name) VALUES ('John','Woo')");
-    }
-
+//    jdbcTemplate.update("INSERT INTO customers(first_name, last_name) VALUES ('John','Woo')");
+  }
 
 }
