@@ -44,6 +44,31 @@ public class ImageController {
                 .build();
         ClassifiedImages result = visualRecognition.classify(options).execute().getResult();
         System.out.println(result);
-        return result.toString();
+
+        List<ClassifiedImage> images = result.getImages();
+
+        ClassifiedImage image = images.get(0);
+        ClassifierResult r = image.getClassifiers().get(0);
+        ClassResult c = r.getClasses().get(0);
+
+        return c.getXClass();
+
+//        for (ClassifiedImage image : images) {
+//
+//            List<ClassifierResult> cr = image.getClassifiers();
+//            for (ClassifierResult r : cr) {
+//                // System.err.println(r.getName());
+//                List<ClassResult> cc = r.getClasses();
+//                for (ClassResult c : cc) {
+//                    // System.err.println("ClassResult : " + c);
+//                    System.err.println("ClassName : " + c.getXClass());
+//                    System.err.println("Score : " + c.getScore());
+//                    System.err.println("TypeHierarchy : " + c.getTypeHierarchy());
+//                    System.err.println("---");
+//                }
+//            }
+//        }
+//
+//        return result.toString();
     }
 }
