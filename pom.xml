@@ -32,6 +32,7 @@
 		</repository>
 	</repositories>
 
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -76,6 +77,12 @@
 			<groupId>org.twitter4j</groupId>
 			<artifactId>twitter4j-core</artifactId>
 			<version>[4.0,)</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.ibm.watson/ibm-watson -->
+		<dependency>
+			<groupId>com.ibm.watson</groupId>
+			<artifactId>ibm-watson</artifactId>
+			<version>8.5.0</version>
 		</dependency>
 	</dependencies>
 
