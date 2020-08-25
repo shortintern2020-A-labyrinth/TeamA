@@ -60,6 +60,7 @@ public class ViewController {
         }
 
         return NLU_results;
+        //TODO: 整形する必要あるかも？
     }
 
 
@@ -84,6 +85,8 @@ public class ViewController {
         }
 
         return imageprocessing_results;
+//                ["call center", "people", "newsreader"]みたいなんがくる。
+
     }
 
 
