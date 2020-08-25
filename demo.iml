@@ -135,6 +135,17 @@
     <orderEntry type="library" name="Maven: org.twitter4j:twitter4j-core:4.0.7" level="project" />
     <orderEntry type="library" name="Maven: com.ibm.watson:ibm-watson:8.5.0" level="project" />
     <orderEntry type="library" name="Maven: com.ibm.watson:assistant:8.5.0" level="project" />
+    <orderEntry type="library" name="Maven: com.ibm.watson:common:8.5.0" level="project" />
+    <orderEntry type="library" name="Maven: com.ibm.watson:compare-comply:8.5.0" level="project" />
+    <orderEntry type="library" name="Maven: com.ibm.watson:discovery:8.5.0" level="project" />
+    <orderEntry type="library" name="Maven: com.ibm.watson:language-translator:8.5.0" level="project" />
+    <orderEntry type="library" name="Maven: com.ibm.watson:natural-language-classifier:8.5.0" level="project" />
+    <orderEntry type="library" name="Maven: com.ibm.watson:natural-language-understanding:8.5.0" level="project" />
+    <orderEntry type="library" name="Maven: com.ibm.watson:personality-insights:8.5.0" level="project" />
+    <orderEntry type="library" name="Maven: com.ibm.watson:speech-to-text:8.5.0" level="project" />
+    <orderEntry type="library" name="Maven: com.ibm.watson:text-to-speech:8.5.0" level="project" />
+    <orderEntry type="library" name="Maven: com.ibm.watson:tone-analyzer:8.5.0" level="project" />
+    <orderEntry type="library" name="Maven: com.ibm.watson:visual-recognition:8.5.0" level="project" />
     <orderEntry type="library" name="Maven: com.ibm.cloud:sdk-core:8.1.0" level="project" />
     <orderEntry type="library" name="Maven: com.squareup.okhttp3:okhttp:3.14.9" level="project" />
     <orderEntry type="library" name="Maven: com.squareup.okio:okio:1.17.2" level="project" />
@@ -154,16 +165,5 @@
     <orderEntry type="library" name="Maven: com.google.code.gson:gson:2.8.6" level="project" />
     <orderEntry type="library" name="Maven: io.reactivex.rxjava2:rxjava:2.2.19" level="project" />
     <orderEntry type="library" name="Maven: org.reactivestreams:reactive-streams:1.0.3" level="project" />
-    <orderEntry type="library" name="Maven: com.ibm.watson:common:8.5.0" level="project" />
-    <orderEntry type="library" name="Maven: com.ibm.watson:compare-comply:8.5.0" level="project" />
-    <orderEntry type="library" name="Maven: com.ibm.watson:discovery:8.5.0" level="project" />
-    <orderEntry type="library" name="Maven: com.ibm.watson:language-translator:8.5.0" level="project" />
-    <orderEntry type="library" name="Maven: com.ibm.watson:natural-language-classifier:8.5.0" level="project" />
-    <orderEntry type="library" name="Maven: com.ibm.watson:natural-language-understanding:8.5.0" level="project" />
-    <orderEntry type="library" name="Maven: com.ibm.watson:personality-insights:8.5.0" level="project" />
-    <orderEntry type="library" name="Maven: com.ibm.watson:speech-to-text:8.5.0" level="project" />
-    <orderEntry type="library" name="Maven: com.ibm.watson:text-to-speech:8.5.0" level="project" />
-    <orderEntry type="library" name="Maven: com.ibm.watson:tone-analyzer:8.5.0" level="project" />
-    <orderEntry type="library" name="Maven: com.ibm.watson:visual-recognition:8.5.0" level="project" />
   </component>
 </module>
