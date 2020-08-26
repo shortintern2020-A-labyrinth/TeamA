@@ -27,5 +27,4 @@ public class DemoApplication implements CommandLineRunner {
       jdbcTemplate.update("INSERT INTO customers(first_name, last_name) VALUES ('John','Woo')");
       */
   }
-
 }
