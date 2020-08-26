@@ -5,10 +5,7 @@ package com.example.demo.entity;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
-import org.seasar.doma.Entity;
-import org.seasar.doma.GeneratedValue;
-import org.seasar.doma.GenerationType;
-import org.seasar.doma.Id;
+import org.seasar.doma.*;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.NotNull;
@@ -21,13 +18,13 @@ import java.time.LocalDateTime;
 @Data
 @Getter
 @Setter
+@Table(name = "emolog")
 public class Emolog implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @Id
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    Integer id;
 
     @NotNull
 
@@ -42,5 +39,5 @@ public class Emolog implements Serializable {
     @Max(40)
     private String contents;
 
-    private LocalDateTime create_at;
+    private LocalDateTime created_at;
 }

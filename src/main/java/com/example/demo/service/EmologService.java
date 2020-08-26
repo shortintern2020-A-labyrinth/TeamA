@@ -12,10 +12,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+
 import com.example.demo.entity.Emolog;
 
 @Service
@@ -30,11 +28,11 @@ public class EmologService {
 
     public List<Emolog> insert(int user, int friend, String contents) throws ParseException {
         Emolog e = new Emolog();
-        e.setId(13);
+        e.setId((int)Calendar.getInstance().getTimeInMillis());
         e.setUserid(user);
         e.setFriendid(friend);
-        LocalDateTime create_at = LocalDateTime.now();
-        e.setCreate_at(create_at);
+        LocalDateTime created_at = LocalDateTime.now();
+        e.setCreated_at(created_at);
         e.setContents(contents);
         repository.insert(e);
         return repository.selectAll(user, friend);

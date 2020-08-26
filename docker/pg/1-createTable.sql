@@ -44,11 +44,6 @@ create table requestfriend (
                                create_at timestamp
 );
 
-create table emojicode (
-                           keyword serial primary key,
-                           emoji_code varchar(30)
-);
-
 
 insert into users(name, mail, filterlevel) values
 ('ichigo.chocomint', 'ichigo@hoge.com', 1),
@@ -95,38 +90,5 @@ insert into users(name, mail, filterlevel) values
   ('ichigo.chocomint', 'hoge@hoge.com', 1),
   ('banana.chocomint', 'hogehoge@hoge.com', 2),
   ('pinapple.chocomint', 'hogehogehoge@hoge.com', 3)
-;
-
-insert into emojicode(keyword, emoji_code) values
-  ('radio', ':radio:'),
-  ('movies', ':movie_camera:'),
-  ('bowling',':bowling:'),
-  ('bank',':bank:')
-;
-
-insert into talk(userid, friendid,contents,create_at) values
-  (100, 101,'Hello World !', current_timestamp),
-  (101,100, 'Hi !', current_timestamp),
-  (101,100,'See you.','2020-08-25 10:23:23')
-;
-
-insert into emolog(userid,friendid,create_at,contents) values
-  (101,100,'2020-08-25 10:23:23',':grinning: :smiley: :wink: :radio: :credit_card:'),
-  (100,101,'2020-08-25 10:23:23',':wink: :radio: :credit_card: :grinning: :smiley:')
-;*/
-
-
-
-insert into friend(userid, friendid, name, latestemolog) values
- (1, 2, 'hoge', 'emojihoge'),
- (2, 1, 'Trump', ':smile:'),
- (1, 3, 'kim jyoung-un', ':sad:')
-;
-
-insert into emolog(userid, friendid, create_at, contents) values
- (1, 2, current_timestamp, ':mountain:'),
- (2, 1, current_timestamp, ':hotel:'),
- (1, 3, current_timestamp, ':gorilla:'),
- (3, 1, current_timestamp, ':space:')
 ;
 
