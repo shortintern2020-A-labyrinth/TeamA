@@ -106,7 +106,6 @@
 			<artifactId>hibernate-commons-annotations</artifactId>
 			<version>5.1.0.Final</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-validator -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-validator</artifactId>
@@ -122,7 +121,7 @@
 			<artifactId>doma</artifactId>
 			<version>${doma.version}</version>
 		</dependency>
-		<!-- emoji-java -->
+		<!-- https://mvnrepository.com/artifact/com.vdurmont/emoji-java -->
 		<dependency>
 			<groupId>com.vdurmont</groupId>
 			<artifactId>emoji-java</artifactId>
