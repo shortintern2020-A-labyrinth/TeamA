@@ -177,5 +177,6 @@
     <orderEntry type="library" name="Maven: org.seasar.doma:doma:2.18.0" level="project" />
     <orderEntry type="library" name="Maven: com.vdurmont:emoji-java:4.0.0" level="project" />
     <orderEntry type="library" name="Maven: org.json:json:20170516" level="project" />
+
   </component>
 </module>
