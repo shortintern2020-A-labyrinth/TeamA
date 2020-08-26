@@ -121,6 +121,7 @@
 			<groupId>org.seasar.doma</groupId>
 			<artifactId>doma</artifactId>
 			<version>${doma.version}</version>
+		</dependency>
 	</dependencies>
 
 	<build>
