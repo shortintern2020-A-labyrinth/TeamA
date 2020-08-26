@@ -1,25 +1,30 @@
 package com.example.demo.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-import java.util.Date;
+
 
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
+import org.seasar.doma.Entity;
+import org.seasar.doma.GeneratedValue;
+import org.seasar.doma.GenerationType;
+import org.seasar.doma.Id;
+
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import java.io.Serializable;
 
 
-@Data
 @Entity
-public class Sample {
+@Data
+@Getter
+@Setter
+public class Sample implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @Id
-    @Getter
-    @Setter
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @NotNull

@@ -5,6 +5,13 @@ create table users (
   filterlevel smallint
 );
 
+create table sample (
+  id serial primary key,
+  name varchar(30) not null,
+  mail varchar(50) not null,
+  filterlevel smallint
+);
+
 create table friend (
   id serial primary key,
   userid INTEGER not null,

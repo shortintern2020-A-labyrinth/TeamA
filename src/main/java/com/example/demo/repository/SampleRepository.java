@@ -2,21 +2,29 @@ package com.example.demo.repository;
 
 import com.example.demo.dao.SampleDao;
 import com.example.demo.entity.Sample;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
+import org.seasar.doma.Insert;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import javax.persistence.EntityManager;
-import java.awt.*;
+import java.util.List;
 
-//@Repository
-//@AllArgsConstructor
-//@NoArgsConstructor
-//public class SampleRepository extends BaseRepository{
+@Repository
+public class SampleRepository{
 
-//    @Override
-//    public List<Sample> getAll(int id){
-//    }
+    @Autowired
+    SampleDao dao;
 
-
-//}
+    public List<Sample> selectAll() { // (4)
+        return dao.selectAll();
+    }
+    @Insert
+    public int insert(Sample s) {
+        return dao.insert(s);
+    } // (6)
+//    @Update
+//    int update(Sample s);
+//    @Delete
+//    int delete(Sample s);
+//    @Select
+//    long countByFinished(boolean finished);
+}
