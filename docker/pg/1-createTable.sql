@@ -55,7 +55,15 @@ insert into users(name, mail, filterlevel) values
   ('pinapple.chocomint', 'hogehogehoge@hoge.com', 3)
 ;
 
-insert into emolog(userid, friendid, name, latestemolog)
-values (1, 2, 'hoge', 'emojihoge')
+insert into friend(userid, friendid, name, latestemolog)
+values (1, 2, 'hoge', 'emojihoge'),
+values (2, 1, 'chinkokun', ':smile:'),
+values (1, 3, 'kim jyoung-un', ':sad:')
 ;
 
+insert into emolog(userid, friendid, create_at, contents)
+values (1, 2, current_timestamp, ':mountain:'),
+values (2, 1, current_timestamp, ':hotel:'),
+values (1, 3, current_timestamp, ':fuck:'),
+values (3, 1, current_timestamp, ':space:')
+;

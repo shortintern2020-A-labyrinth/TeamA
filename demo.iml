@@ -41,6 +41,8 @@
     <orderEntry type="library" name="twitter4j-core-4.0.7" level="project" />
     <orderEntry type="library" name="twitter4j-examples-4.0.7" level="project" />
     <orderEntry type="library" name="twitter4j-stream-4.0.7" level="project" />
+    <orderEntry type="library" name="Maven: com.vdurmont:emoji-java:4.0.0" level="project" />
+    <orderEntry type="library" name="Maven: org.json:json:20170516" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-thymeleaf:2.3.2.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter:2.3.2.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot:2.3.2.RELEASE" level="project" />
@@ -177,6 +179,5 @@
     <orderEntry type="library" name="Maven: org.seasar.doma:doma:2.18.0" level="project" />
     <orderEntry type="library" name="Maven: com.vdurmont:emoji-java:4.0.0" level="project" />
     <orderEntry type="library" name="Maven: org.json:json:20170516" level="project" />
-
   </component>
 </module>
