@@ -38,7 +38,7 @@ public class HtmlController {
         // 文字列整形の方(テキトーに::をつける方)
         for( String keyword : keyword_tweets){
             try{
-                String tmp = EmojiManager.getForAlias(":" + keyword + ":").getUnicode();
+                String tmp = EmojiParser.parseToHtmlDecimal(":" + keyword + ":");
                 emojiList.add(tmp);
             }
             catch (NullPointerException ignored){}
@@ -46,16 +46,27 @@ public class HtmlController {
 
         for( String keyword : keyword_images){
             try{
-                String tmp = EmojiManager.getForAlias(":" + keyword + ":").getUnicode();
+                String tmp = EmojiParser.parseToHtmlDecimal(":" + keyword + ":");
                 emojiList.add(tmp);
             }
             catch (NullPointerException ignored){}
         }
 
-        // で、:hoge:みたいなんが得られたらEmologにパースして、それをaddAttributeする.->取り出せん。
+        // で、:hoge:みたいなんが得られたらEmologにパースして、それをaddAttributeする.->データがdbに入っていないとThymeleaf側で取り出せん模様。
 //        modelMap.addAttribute("emologs", emojiList);
 
-        //TODO: ここで得られたemologをdbに登録する…
+
+        // emojiList : ["&#128515", "&#128515", "&#128515"] みたいな感じ。
+        // emojiListから一つの文字列に直す。
+        String emolog = String.join("", emojiList);
+
+
+        //TODO: ここで得られたemologをdbに登録する処理…
+        // emolog(userid, friendid, create_at, contents)
+        // userid = 1, friendid = 2, create_at = TIMESTAMP??, contents = emolog
+
+
+
 
 
         return "friendlist";
