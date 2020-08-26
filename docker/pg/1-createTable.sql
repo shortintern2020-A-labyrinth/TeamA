@@ -15,16 +15,16 @@ create table sample (
 create table friend (
   id serial primary key,
   userid INTEGER not null,
-  friendid INTEGER not null,
   name varchar(30) not null,
-  latestemolog varchar(30)
+  latestemolog varchar(30),
+  updated_at timestamp
 );
 
 create table emolog (
   id serial primary key,
   userid INTEGER not null,
   friendid INTEGER not null,
-  create_at timestamp,
+  created_at timestamp,
   contents varchar(30)
 );
 
@@ -58,4 +58,3 @@ insert into users(name, mail, filterlevel) values
 insert into emolog(userid, friendid, name, latestemolog)
 values (1, 2, 'hoge', 'emojihoge')
 ;
-
