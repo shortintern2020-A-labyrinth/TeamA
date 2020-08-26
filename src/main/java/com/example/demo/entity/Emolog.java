@@ -40,7 +40,7 @@ public class Emolog implements Serializable {
 
     @NotNull
     @Max(40)
-    private String contents;
+    private String latestemolog;
 
     private LocalDateTime create_at;
 }

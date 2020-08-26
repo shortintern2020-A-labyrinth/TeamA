@@ -71,39 +71,6 @@ a:hover {
   height: 100%;
   background-color: #fffacd;
 }
-
-.global-nav {
-  height: 10%;
-  width: 100%;
-
-  width: 960px;
-  margin: 0 auto;
-  position: fixed;
-  bottom: 0;
-}
-
-.global-nav li{
-  background-color: #f0f8ff;
-  width: 33%;
-  float: left;
-  margin: 5px 1px;
-  text-align: center;
-  font-size: 20px;
-  list-style: none;
-  font-family: 'Bitter',serif;
-}
-
-.global-nav li a{
-  padding: 5px 5%;
-}
-
-
-.global-nav li a:hover{
-  border-bottom: 2px solid;
-  padding-bottom: 3px;
-  text-decoration: none;
-}
-
 /* chat.html 部分*/
 
 .friend-name {
@@ -114,11 +81,11 @@ ul.header_ul{
   width: 100%;
 }
 ul.header_ul li{
-  display: inline-block;
-  vertical-align:middle;
-  margin: 0;
-  padding: 0;
-  width: 45%;
+    display: inline-block;
+    vertical-align:middle;
+    margin: 0;
+    padding: 0;
+    width: 45%;
 }
 
 .emolog {
@@ -142,16 +109,16 @@ ul.header_ul li{
 }
 
 .emolog_ul {
-  width: 100%;
+    width: 100%;
 
 }
 
 .emolog_ul li {
-  text-align: center;
-  display: inline-block;
-  vertical-align:middle;
-  margin: 0;
-  padding: 0;
+    text-align: center;
+    display: inline-block;
+    vertical-align:middle;
+    margin: 0;
+    padding: 0;
 }
 .emolog_ul li.emolog-date-cover {
   vertical-align:top;
@@ -177,24 +144,3 @@ ul.header_ul li{
   font-size: 20px;
   font-family: 'Bitter',serif;
 }
-
-/* emologlist.html*/
-.emolog-list {
-  height: 90%;
-  background-color: #f5f5f5;
-  overflow:  auto;
-}
-.emolog-list li {
-  border-bottom: solid 1px #000000;
-  list-style: none;
-  text-align: center;
-}
-.emolog-date {
-  float:  left;
-  text-align: left;
-  margin: 5px 5px 0 0;
-  font-size: 18px;
-  font-family: 'Bitter',serif;
-}
-
-/* emologlist.html 終わり*/
