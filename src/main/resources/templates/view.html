@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="jp">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
   <title>チャットページ</title>
   <link href="https://fonts.googleapis.com/css?family=Bitter:400,700" rel="stylesheet">
-  <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css">
+  <link th:href="@{../static/css/style.css}" rel="stylesheet" type="text/css">
 </head>
 
 <body id="chatpage">
   <!-- 戻るボタンと名前の表示-->
     <header>
       <div class="backbtn">
-          <a href="emologlist.html"> <img th:src="@{images/arrow_left_24.png}" alt="backbutton"></a>
+          <a href="emologlist.html"> <img th:src="@{../static/images/arrow_left_24.png}" alt="backbutton"></a>
       </div> 
       <div class="friend-name">
         <p>hogeさん</p>

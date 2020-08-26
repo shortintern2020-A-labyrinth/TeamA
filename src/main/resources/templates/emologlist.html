@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="jp" dir="ltr">
+<html xmlns:th="http://www.thymeleaf.org" lang="jp" dir="ltr">
   <head>
     <meta charset="utf-8">
     <title>エモログリストページ</title>
-    <link href="css/style.css" rel="stylesheet">
+    <link href="../static/css/style.css" rel="stylesheet">
   </head>
   <body>
      <!-- 戻るボタンと名前の表示-->
     <section class="header">
       <div class="backbtn">
-        <a href="friendlist.html"> <img src="images/arrow_left_24.png" alt="backbutton"></a>
+        <a href="friendlist.html"> <img src="../static/images/arrow_left_24.png" alt="backbutton"></a>
       </div>
       <div class="friend-name">
         <p>hogeさん</p>
@@ -22,33 +22,18 @@
        <div class="emolog-list">
 
           <!-- 本当はjava でデータを取ってきてすべて表示　例を書く-->
-         <ul>
-            <li><a href="chat.html">
-              <p class="emolog-date">8月18日<p>
-              <!--相手のエモログの表示-->
-              <p class="emoji">&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;</p>
-              <img src="images/arrow.png" alt="emolog_arrow">
-              </a>
-            </li>
-            <li>
-              <p class="emolog-date">8月17日<p>
-              <!--相手のエモログの表示-->
-              <p class="emoji">&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;</p>
-              <img src="images/arrow.png" alt="emolog_arrow">
-            </li>
-            <li>
-              <p class="emolog-date">8月16日<p>
-              <!--相手のエモログの表示-->
-              <p class="emoji">&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;</p>
-              <img src="images/arrow.png" alt="emolog_arrow">
-            </li>
-            <li>
-              <p class="emolog-date">8月15日<p>
-              <!--相手のエモログの表示-->
-              <p class="emoji">&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;</p>
-              <img src="images/arrow.png" alt="emolog_arrow">
-            </li>
-          </ul>
+         <ul th:each = "emolog : ${emologs}">
+<!--             <div th:object="${emolog}">-->
+<!--             <p class="emolog-date" th:text="*{create_at}"></p>-->
+             <p class="emolog-date" th:text="${emolog}"></p>
+                <a href="chat.html">
+                    <!--相手のエモログの表示-->
+<!--                    <div class="emoji" ><p th:utext = "*{contents}"></p></div>-->
+                    <div class="emoji" ><p th:utext = "*{emolog}"></p></div>
+                    <img src="../static/images/arrow.png" alt="emolog_arrow">
+                </a>
+             </div>
+         </ul>
        </div>
 
        <!-- ナビゲーションバーを表示-->

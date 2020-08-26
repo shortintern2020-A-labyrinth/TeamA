@@ -79,6 +79,11 @@ a:hover {
 }
 ul.header_ul{
   width: 100%;
+
+  width: 960px;
+  margin: 0 auto;
+  position: fixed;
+  bottom: 0;
 }
 ul.header_ul li{
     display: inline-block;

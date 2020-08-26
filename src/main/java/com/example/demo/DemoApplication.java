@@ -14,10 +14,10 @@ public class DemoApplication implements CommandLineRunner {
 		SpringApplication.run(DemoApplication.class, args);
 	}
 
-  
-	@Autowired
-  JdbcTemplate jdbcTemplate;
-  
+
+//  @Autowired
+//  JdbcTemplate jdbcTemplate;
+
   @Override // アプリ起動時に実行される。
   public void run(String... strings) throws Exception {
       /*
