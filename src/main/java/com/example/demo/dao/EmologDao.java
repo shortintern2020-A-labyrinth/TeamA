@@ -17,4 +17,7 @@ public interface EmologDao {
 
     @Select
     List<Emolog> selectAll(int user, int friend);
+
+    @Insert
+    int insert(Emolog e);
 }
