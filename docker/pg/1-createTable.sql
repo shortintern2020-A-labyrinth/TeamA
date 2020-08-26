@@ -1,3 +1,4 @@
+/*テーブル作成*/
 create table users (
                        id serial primary key,
                        name varchar(30) not null,
@@ -48,6 +49,7 @@ create table emojicode (
                            emoji_code varchar(30)
 );
 
+
 insert into users(name, mail, filterlevel) values
 ('ichigo.chocomint', 'ichigo@hoge.com', 1),
 ('banana.chocomint', 'banana@hoge.com', 2),
@@ -88,11 +90,32 @@ insert into requestfriend(userid, requestfriendid, create_at) values
 (45, 67, '2019-07-19 07:19:19'),
 (89, 12, '2020-08-20 08:20:20')
 ;
+
 insert into users(name, mail, filterlevel) values
   ('ichigo.chocomint', 'hoge@hoge.com', 1),
   ('banana.chocomint', 'hogehoge@hoge.com', 2),
   ('pinapple.chocomint', 'hogehogehoge@hoge.com', 3)
 ;
+
+insert into emojicode(keyword, emoji_code) values
+  ('radio', ':radio:'),
+  ('movies', ':movie_camera:'),
+  ('bowling',':bowling:'),
+  ('bank',':bank:')
+;
+
+insert into talk(userid, friendid,contents,create_at) values
+  (100, 101,'Hello World !', current_timestamp),
+  (101,100, 'Hi !', current_timestamp),
+  (101,100,'See you.','2020-08-25 10:23:23')
+;
+
+insert into emolog(userid,friendid,create_at,contents) values
+  (101,100,'2020-08-25 10:23:23',':grinning: :smiley: :wink: :radio: :credit_card:'),
+  (100,101,'2020-08-25 10:23:23',':wink: :radio: :credit_card: :grinning: :smiley:')
+;*/
+
+
 
 insert into friend(userid, friendid, name, latestemolog) values
  (1, 2, 'hoge', 'emojihoge'),

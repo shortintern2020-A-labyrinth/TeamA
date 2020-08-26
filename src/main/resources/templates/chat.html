@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="jp" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
   <title>チャットページ</title>
   <link href="https://fonts.googleapis.com/css?family=Bitter:400,700" rel="stylesheet">
-  <link th:href="@{../static/css/style.css}" rel="stylesheet" type="text/css">
+  <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css">
 </head>
 
 <body id="chatpage">
@@ -12,7 +12,7 @@
   <div class="header">
     <ul class="header_ul">
       <li>
-        <a href="emologlist.html"> <img th:src="@{../static/images/arrow_left_24.png}" alt="backbutton"></a>
+        <a href="emologlist"> <img th:src="@{images/arrow_left_24.png}" alt="backbutton"></a>
       </li>
       <li>
         <div class="friend-name">
@@ -33,7 +33,7 @@
               <!--自分のエモログの表示-->
               <!--<p class="emoji">&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;</p> -->
               <p class="emoji" th:text="${FriendEmolog}"></p>
-              <p>朝 <img th:src="@{../static/images/arrow.png}" alt="emolog_arrow"> 夜</p>
+              <p>朝 <img th:src="@{images/arrow.png}" alt="emolog_arrow"> 夜</p>
               <!--相手のエモログの表示-->
               <p class="emoji" th:text="${MyEmolog}"></p>
             </li>
@@ -43,11 +43,11 @@
         <!-- チャットの表示-->
         <div class="chat">
         <!-- <p th:text="${MessageBox.text}"> -->
-          
-          <p th:text="${MyChatMessage}">
-          <p th:text="${FriendChatMessage}">
+
+            <!-- <p th:text="${MyChatMessage}">
+            <p th:text="${FriendChatMessage}">-->
         </div>
-        <!-- 入力ボックス、送信ボタンの表示-->
+          <!-- 入力ボックス、送信ボタンの表示-->
         <div class="message">
         <!--<form th:object="${MessageBox}" method="post" >
           <input type="text" name="MessageBox" class="message-box" th:field="*{text}" >

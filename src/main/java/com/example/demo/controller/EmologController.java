@@ -17,10 +17,10 @@ import java.util.List;
 
 
 @Controller
-@RequestMapping(path = "/emologlist")
+@RequestMapping(path = "/")
 public class EmologController {
 
-    @Autowired
+    /*@Autowired
     EmologService service;
 
     @RequestMapping(value="/{userid}/{friendid}",method=RequestMethod.GET)
@@ -30,6 +30,12 @@ public class EmologController {
         List<Emolog> emologs = service.selectAll(userId, friendId);
         model.addAttribute("emologs", emologs);
         return "emologlist";
+    }*/
+
+    @RequestMapping(path = "/emologlist")
+    public String chat(Model model){
+        return "emologlist";
     }
+
 
 }

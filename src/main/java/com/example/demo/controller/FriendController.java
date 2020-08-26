@@ -14,10 +14,10 @@ import java.util.List;
 
 
 @Controller
-@RequestMapping(path = "/friendlist")
+@RequestMapping(path = "/")
 public class FriendController {
 
-    @Autowired
+    /*@Autowired
     FriendService service;
 
     @RequestMapping(value="/{userid}",method=RequestMethod.GET)
@@ -26,6 +26,10 @@ public class FriendController {
         List<Friend> friends = service.selectAll(userId);
         model.addAttribute("friends", friends);
         return "friendlist.html";
-    }
+    }*/
 
+    @RequestMapping(path = "/friendlist")
+    public String chat(Model model) {
+        return "friendlist";
+    }
 }

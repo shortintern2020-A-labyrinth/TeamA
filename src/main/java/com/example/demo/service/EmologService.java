@@ -16,6 +16,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import com.example.demo.entity.Emolog;
 
 @Service
 public class EmologService {
@@ -28,14 +29,14 @@ public class EmologService {
     }
 
     public List<Emolog> insert(int user, int friend, String contents) throws ParseException {
-        Emolog e = new Emolog();
+        /*Emolog e = new Emolog();
         e.setId(13);
         e.setUserid(user);
         e.setFriendid(friend);
         LocalDateTime create_at = LocalDateTime.now();
         e.setCreate_at(create_at);
         e.setContents(contents);
-        repository.insert(e);
+        repository.insert(e);*/
         return repository.selectAll(user, friend);
     }
 
