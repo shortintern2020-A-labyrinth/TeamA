@@ -4,6 +4,7 @@ import com.example.demo.entity.Emolog;
 import com.example.demo.entity.Sample;
 import com.example.demo.service.EmologService;
 import com.example.demo.service.SampleService;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-@RestController
+@Controller
 @RequestMapping(path = "/emologlist")
 public class EmologController {
 
