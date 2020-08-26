@@ -49,10 +49,13 @@ create table emojicode (
   emoji_code varchar(30)
 );
 
-
 insert into users(name, mail, filterlevel) values
   ('ichigo.chocomint', 'hoge@hoge.com', 1),
   ('banana.chocomint', 'hogehoge@hoge.com', 2),
   ('pinapple.chocomint', 'hogehogehoge@hoge.com', 3)
+;
+
+insert into emolog(userid, friendid, name, latestemolog)
+values (1, 2, 'hoge', 'emojihoge')
 ;
 
