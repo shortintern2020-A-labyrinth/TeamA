@@ -23,11 +23,13 @@
 
           <!-- 本当はjava でデータを取ってきてすべて表示　例を書く-->
          <ul th:each = "emolog : ${emologs}">
-             <div th:object="${emolog}">
-             <p class="emolog-date" th:text="*{create_at}"></p>
+<!--             <div th:object="${emolog}">-->
+<!--             <p class="emolog-date" th:text="*{create_at}"></p>-->
+             <p class="emolog-date" th:text="${emolog}"></p>
                 <a href="chat.html">
                     <!--相手のエモログの表示-->
-                    <div class="emoji" ><p th:utext = "*{contents}"></p></div>
+<!--                    <div class="emoji" ><p th:utext = "*{contents}"></p></div>-->
+                    <div class="emoji" ><p th:utext = "*{emolog}"></p></div>
                     <img src="../static/images/arrow.png" alt="emolog_arrow">
                 </a>
              </div>
