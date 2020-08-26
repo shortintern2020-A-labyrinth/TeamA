@@ -21,28 +21,29 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import java.io.File;
 
 @RestController
-@RequestMapping(path = "/Image")
+@RequestMapping(path = "/image")
 public class ImageController {
     private static final Logger LOG = LoggerFactory.getLogger(ImageController.class);
 
     @Autowired
     JdbcTemplate jdbcTemplate;
 
-    @RequestMapping(path = "/test", method = RequestMethod.GET)
+    @RequestMapping(path = "/recognition", method = RequestMethod.GET)
     public String test(
-            @RequestParam(name = "img_path", defaultValue = "/Users/NakamuraTsukasa/Desktop/633.png") String img_path
+            @RequestParam(name = "img_path", defaultValue = "/Users/NakamuraTsukasa/Desktop/633.png") String img_path,
+            @RequestParam(name = "img_url", defaultValue = "https://upload.wikimedia.org/wikipedia/commons/2/2a/Jewelkatz_Romeo_Of_Stalker-Bars.jpg") String img_url
     ) throws FileNotFoundException {
-        String url = "https://zukan.pokemon.co.jp/zukan-api/up/images/index/94b9fb82b38847b83a8041e9a78989ce.png";
+        //String url = "https://zukan.pokemon.co.jp/zukan-api/up/images/index/94b9fb82b38847b83a8041e9a78989ce.png";
 
         IamAuthenticator authenticator = new IamAuthenticator("8nwN0eKp7eZ73So4DLdPndp_yv-vtlI27pN1wK2TjVg1");
         VisualRecognition visualRecognition = new VisualRecognition("2019-07-12", authenticator);
 
         ClassifyOptions options = new ClassifyOptions.Builder()
-//                .url(url)
-                .imagesFile(new File(img_path))
+                .url(img_url)
+                //.imagesFile(new File(img_path))
                 .build();
         ClassifiedImages result = visualRecognition.classify(options).execute().getResult();
-        System.out.println(result);
+        //System.out.println(result);
 
         List<ClassifiedImage> images = result.getImages();
 

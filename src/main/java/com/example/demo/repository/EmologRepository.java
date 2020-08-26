@@ -20,4 +20,9 @@ public class EmologRepository {
     public List<Emolog> selectAll(int user, int friend) { // (4)
         return dao.selectAll(user, friend);
     }
+
+    @Insert
+    public int insert(Emolog e) {
+        return dao.insert(e);
+    }
 }

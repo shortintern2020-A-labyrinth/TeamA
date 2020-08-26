@@ -2,16 +2,21 @@ package com.example.demo.controller;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.lang.NullPointerException;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
+import com.example.demo.entity.Emolog;
+import com.example.demo.service.EmologService;
 import com.ibm.cloud.sdk.core.security.IamAuthenticator;
 import com.ibm.watson.natural_language_understanding.v1.NaturalLanguageUnderstanding;
 import com.ibm.watson.natural_language_understanding.v1.model.*;
 import com.ibm.watson.visual_recognition.v3.VisualRecognition;
 import com.ibm.watson.visual_recognition.v3.model.*;
+import com.vdurmont.emoji.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +32,9 @@ public class ViewController {
 
     @Autowired
     JdbcTemplate jdbcTemplate;
+
+    @Autowired
+    EmologService emologService;
 
 
     @RequestMapping(path = "/users", method = RequestMethod.GET)
@@ -160,6 +168,36 @@ public class ViewController {
 
         return c.getXClass();
 
+    }
+
+    //emoji-javaを使ってキーワードから絵文字に変換
+    @RequestMapping(path = "/convert/{keyword}", method = RequestMethod.GET)
+    public String convert(
+            @PathVariable("keyword") String keyword
+    ) {
+        keyword = keyword.replace(" ", "_"); //空白を_に置換
+        keyword = ":" + keyword + ":";
+        Emoji emoji;
+        try {
+            emoji = EmojiManager.getForAlias(keyword);
+            System.out.println(emoji);
+            return emoji.getUnicode();
+        } catch(java.lang.NullPointerException n) {
+            //キーワードがエイリアスとして存在していないときは？を返す
+            System.out.println(n);
+            emoji = EmojiManager.getForAlias("grey_question");
+            return emoji.getUnicode();
+        }
+    }
+
+    @RequestMapping(value="/emolog",method=RequestMethod.GET)
+    public List<Emolog> insertEmolog(
+            Integer user,
+            Integer friend,
+            String emoji
+    ) throws ParseException {
+//        return emologService.insert(user, friend, emoji);
+        return emologService.insert(123, 456, "U+1F600");
     }
 
     //関数もおいちゃえ

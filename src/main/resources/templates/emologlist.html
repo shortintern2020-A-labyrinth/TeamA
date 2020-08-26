@@ -22,18 +22,33 @@
        <div class="emolog-list">
 
           <!-- 本当はjava でデータを取ってきてすべて表示　例を書く-->
-         <ul th:each = "emolog : ${emologs}">
-<!--             <div th:object="${emolog}">-->
-<!--             <p class="emolog-date" th:text="*{create_at}"></p>-->
-             <p class="emolog-date" th:text="${emolog}"></p>
-                <a href="chat.html">
-                    <!--相手のエモログの表示-->
-<!--                    <div class="emoji" ><p th:utext = "*{contents}"></p></div>-->
-                    <div class="emoji" ><p th:utext = "*{emolog}"></p></div>
-                    <img src="../static/images/arrow.png" alt="emolog_arrow">
-                </a>
-             </div>
-         </ul>
+         <ul>
+            <li><a href="chat.html">
+              <p class="emolog-date">8月18日<p>
+              <!--相手のエモログの表示-->
+              <p class="emoji">&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;</p>
+              <img src="../static/images/arrow.png" alt="emolog_arrow">
+              </a>
+            </li>
+            <li>
+              <p class="emolog-date">8月17日<p>
+              <!--相手のエモログの表示-->
+              <p class="emoji">&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;</p>
+              <img src="../static/images/arrow.png" alt="emolog_arrow">
+            </li>
+            <li>
+              <p class="emolog-date">8月16日<p>
+              <!--相手のエモログの表示-->
+              <p class="emoji">&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;</p>
+              <img src="../static/images/arrow.png" alt="emolog_arrow">
+            </li>
+            <li>
+              <p class="emolog-date">8月15日<p>
+              <!--相手のエモログの表示-->
+              <p class="emoji">&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;</p>
+              <img src="../static/images/arrow.png" alt="emolog_arrow">
+            </li>
+          </ul>
        </div>
 
        <!-- ナビゲーションバーを表示-->

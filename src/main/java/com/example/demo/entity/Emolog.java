@@ -26,10 +26,11 @@ public class Emolog implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @NotNull
+
     @Size(max=30)
     private Integer userid;
 
