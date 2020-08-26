@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.lang.NullPointerException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -12,6 +13,7 @@ import com.ibm.watson.natural_language_understanding.v1.NaturalLanguageUnderstan
 import com.ibm.watson.natural_language_understanding.v1.model.*;
 import com.ibm.watson.visual_recognition.v3.VisualRecognition;
 import com.ibm.watson.visual_recognition.v3.model.*;
+import com.vdurmont.emoji.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -159,6 +161,24 @@ public class ViewController {
 
         return c.getXClass();
 
+    }
+
+    //emoji-javaを使ってキーワードから絵文字に変換
+    @RequestMapping(path = "/convert/{keyword}", method = RequestMethod.GET)
+    public String convert(
+            @PathVariable("keyword") String keyword
+    ) {
+        keyword = ":" + keyword + ":";
+        Emoji emoji;
+        try {
+            emoji = EmojiManager.getForAlias(keyword);
+            System.out.println(emoji);
+            return emoji.getUnicode();
+        } catch(java.lang.NullPointerException n) {
+            System.out.println(n);
+            emoji = EmojiManager.getForAlias("grey_question");
+            return emoji.getUnicode();
+        }
     }
 
 }
