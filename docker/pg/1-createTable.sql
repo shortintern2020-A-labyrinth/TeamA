@@ -28,7 +28,7 @@ create table emolog (
   contents varchar(30)
 );
 
-create table talk (
+create table chat (
   id serial primary key,
   userid INTEGER not null,
   friendid INTEGER not null,
