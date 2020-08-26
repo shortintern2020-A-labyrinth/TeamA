@@ -1,20 +1,24 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="jp" dir="ltr">
+<html lang="jp" dir="ltr" xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="utf-8">
     <title>エモログリストページ</title>
-    <link href="../static/css/style.css" rel="stylesheet">
+    <link th:href="@{/css/style.css}" rel="stylesheet">
   </head>
   <body>
      <!-- 戻るボタンと名前の表示-->
-    <section class="header">
-      <div class="backbtn">
-        <a href="friendlist.html"> <img src="../static/images/arrow_left_24.png" alt="backbutton"></a>
-      </div>
-      <div class="friend-name">
-        <p>hogeさん</p>
-      </div>
-    </section>
+    <div class="header">
+      <ul class="header_ul">
+        <li>
+          <a href="friendlist.html"> <img th:src="@{images/arrow_left_24.png}" alt="backbutton"></a>
+        </li>
+        <li>
+          <div class="friend-name">
+            <p>hogeさん</p>
+          </div>
+        </li>
+      </ul>
+    </div>
 
     <div id="wrap"><!-- メインコンテンツ-->
       <div class="content">
@@ -27,30 +31,29 @@
               <p class="emolog-date">8月18日<p>
               <!--相手のエモログの表示-->
               <p class="emoji">&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;</p>
-              <img src="../static/images/arrow.png" alt="emolog_arrow">
+              <img src="images/arrow.png" alt="emolog_arrow">
               </a>
             </li>
             <li>
               <p class="emolog-date">8月17日<p>
               <!--相手のエモログの表示-->
               <p class="emoji">&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;</p>
-              <img src="../static/images/arrow.png" alt="emolog_arrow">
+              <img src="images/arrow.png" alt="emolog_arrow">
             </li>
             <li>
               <p class="emolog-date">8月16日<p>
               <!--相手のエモログの表示-->
               <p class="emoji">&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;</p>
-              <img src="../static/images/arrow.png" alt="emolog_arrow">
+              <img src="images/arrow.png" alt="emolog_arrow">
             </li>
             <li>
               <p class="emolog-date">8月15日<p>
               <!--相手のエモログの表示-->
               <p class="emoji">&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;</p>
-              <img src="../static/images/arrow.png" alt="emolog_arrow">
+              <img src="images/arrow.png" alt="emolog_arrow">
             </li>
           </ul>
        </div>
-
        <!-- ナビゲーションバーを表示-->
        <nav class="global-nav">
            <li><a href="home.html">Home</a></li>
@@ -59,8 +62,9 @@
        </nav>
      </div>
     </div>
-    <!--<footer>
-      <small>(C)2020 Midori-no-tsume</small>
-    </footer>-->
+    <footer>
+
+      <!--<small>(C)2020 Midori-no-tsume</small>-->
+    </footer>
   </body>
 </html>

@@ -32,12 +32,12 @@ create table friend (
   latestemolog varchar(30),
   updated_at timestamp
 );
-
+/*
 insert into friend(userid, name, latestemolog, updated_at) values
   (123, 'ichigo.chocomint', '🍎🍋🍇', 2020-08-24 16:24:29.353806),
   (456, 'banana.chocomint', '🍈🍓🍌', 2020-08-25 16:24:29.353806),
   (789, 'pinapple.chocomint', '🍊🥝', 2020-08-26 16:24:29.353806)
-;
+;*/
 
 create table emolog (
   id serial primary key,
@@ -47,9 +47,9 @@ create table emolog (
   contents varchar(100)
 );
 
-insert into emolog(userid, friendid, created_at, contents) values
-    (123, 456, 2020-08-26 16:24:29.353806, U+1F600)
-;
+/*insert into emolog(userid, friendid, created_at, contents) values
+    (123, 456, '2020-08-26 16:24:29.353806', '')
+;*/
 
 create table talk (
   id serial primary key,
@@ -58,10 +58,10 @@ create table talk (
   contents varchar(30),
   create_at timestamp
 );
-
+/*
 insert into talk(userid, friendid, contents, create_at) values
     (123, 456, "こんにちは", 2020-08-26 16:24:29.353806)
-;
+;*/
 
 create table requestfriend (
   id serial primary key,
@@ -70,10 +70,10 @@ create table requestfriend (
   contents varchar(30),
   create_at timestamp
 );
-
+/*
 insert table requestfriend() values
 ()
-;
+;*/
 
 create table emojicode (
   keyword serial primary key,

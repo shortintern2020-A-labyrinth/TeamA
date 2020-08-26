@@ -98,9 +98,6 @@ public class ViewController {
 
     }
 
-
-
-
     // コントローラは関数として呼び出すのはキツイっぽいのでとりま関数として取り出してる。。
     //TODO: TwitterControllerやNLUControllerから共通部分を分離して別クラスとして保持。
     private static QueryResult search_user(String username, long tweet_id) throws TwitterException {

@@ -30,16 +30,16 @@ public class ChatController {
     public String chat(Model model){
         //日付
         //Date date = new Date();
-        /* */
+
         String date = "8月18日";
         model.addAttribute("date", date);
 
         //絵文字
         //データを受け取る
-        int u_id = 100;
-        int f_id = 101;
+        int u_id = 1;
+        int f_id = 2;
         //SELECT contents FROM emolog WHERE userid== AND friendid AND create_at==date;
-        List<Map<String, Object>> emojilist;
+        /*List<Map<String, Object>> emojilist;
         emojilist = jdbcTemplate.queryForList("SELECT * FROM emolog");
         String MyEmolog ="";
         String FriendEmolog ="";
@@ -50,23 +50,23 @@ public class ChatController {
             }else if(f_id == (Integer)map.get("userid") && u_id == (Integer)map.get("friendid")){
                 FriendEmolog +=map.get("contents");
              }
-        }
+        }*/
 
         //絵文字の表示部分
         //相手側
         //String text = "An 😀awesome 😃string with a few 😉emojis!";
-        //String text = ":grinning: :smiley: :wink: :radio: :credit_card: ";
-        String text =FriendEmolog; 
+        String text = ":grinning: :smiley: :wink: :radio: :credit_card: ";
+        //String text =FriendEmolog;
         text = EmojiParser.parseToUnicode(text);
         model.addAttribute("FriendEmolog", text);
         //自分側
-        text=MyEmolog;
+        //text=MyEmolog;
         text = EmojiParser.parseToUnicode(text);
         model.addAttribute("MyEmolog", text);
 
 
          //チャット部分の表示
-         List<Map<String, Object>> list;
+         /*List<Map<String, Object>> list;
          //list = jdbcTemplate.queryForList("select * from users");
          list = jdbcTemplate.queryForList("SELECT * FROM talk");
          
@@ -81,7 +81,7 @@ public class ChatController {
              }
          }
          model.addAttribute("MyChatMessage", MyMessage);
-         model.addAttribute("FriendChatMessage", FriendMessage);
+         model.addAttribute("FriendChatMessage", FriendMessage);*/
          
         return "chat";
     }
@@ -118,7 +118,7 @@ public class ChatController {
     @Autowired
     JdbcTemplate jdbcTemplate;
 
-    
+
     @RequestMapping(path = "/users", method = RequestMethod.GET)
     public String index() {
         List<Map<String, Object>> list;
