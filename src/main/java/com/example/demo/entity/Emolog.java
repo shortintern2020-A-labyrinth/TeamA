@@ -9,17 +9,20 @@ import org.seasar.doma.Entity;
 import org.seasar.doma.GeneratedValue;
 import org.seasar.doma.GenerationType;
 import org.seasar.doma.Id;
+import org.springframework.format.datetime.standard.DateTimeContext;
 
+import javax.validation.constraints.Max;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 
 @Entity
 @Data
 @Getter
 @Setter
-public class Sample implements Serializable {
+public class Emolog implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -29,11 +32,17 @@ public class Sample implements Serializable {
 
     @NotNull
     @Size(min=30)
-    private String name;
+    private String userid;
 
     @NotNull
     @Size(min=50)
-    private String mail;
+    private String friendid;
 
-    private int filterlevel;
+    private LocalDateTime create_at;
+
+    @NotNull
+    @Max(40)
+    private String contents;
+
+
 }
