@@ -79,3 +79,22 @@ create table emojicode (
   emoji_code varchar(30)
 );
 
+insert into users(name, mail, filterlevel) values
+  ('ichigo.chocomint', 'hoge@hoge.com', 1),
+  ('banana.chocomint', 'hogehoge@hoge.com', 2),
+  ('pinapple.chocomint', 'hogehogehoge@hoge.com', 3)
+;
+
+insert into friend(userid, friendid, name, latestemolog) values
+ (1, 2, 'hoge', 'emojihoge'),
+ (2, 1, 'Trump', ':smile:'),
+ (1, 3, 'kim jyoung-un', ':sad:')
+;
+
+insert into emolog(userid, friendid, create_at, contents) values
+ (1, 2, current_timestamp, ':mountain:'),
+ (2, 1, current_timestamp, ':hotel:'),
+ (1, 3, current_timestamp, ':gorilla:'),
+ (3, 1, current_timestamp, ':space:')
+;
+

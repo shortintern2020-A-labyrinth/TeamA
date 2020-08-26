@@ -36,6 +36,7 @@ public class ViewController {
     @Autowired
     EmologService emologService;
 
+
     @RequestMapping(path = "/users", method = RequestMethod.GET)
     public String index() {
         List<Map<String, Object>> list;
@@ -102,7 +103,7 @@ public class ViewController {
 
     // コントローラは関数として呼び出すのはキツイっぽいのでとりま関数として取り出してる。。
     //TODO: TwitterControllerやNLUControllerから共通部分を分離して別クラスとして保持。
-    private QueryResult search_user(String username, long tweet_id) throws TwitterException {
+    private static QueryResult search_user(String username, long tweet_id) throws TwitterException {
         // 初期化
         Twitter twitter = new TwitterFactory().getInstance();
         Query query = new Query();
@@ -114,7 +115,7 @@ public class ViewController {
         return twitter.search(query);
     }
 
-    private String NLU(String text) {
+    private static String NLU(String text) {
         IamAuthenticator authenticator = new IamAuthenticator("fVfaYMA7tCh4zInWBhTBb5t69xQryK7ObKl42nampynG");
         NaturalLanguageUnderstanding naturalLanguageUnderstanding = new NaturalLanguageUnderstanding("2019-07-12", authenticator);
         naturalLanguageUnderstanding.setServiceUrl("https://api.jp-tok.natural-language-understanding.watson.cloud.ibm.com/instances/ac3df365-93f6-4255-beb8-620d66041251");
@@ -148,7 +149,7 @@ public class ViewController {
     }
 
 
-    private String ImageProcessing(String url) throws FileNotFoundException {
+    private static String ImageProcessing(String url) throws FileNotFoundException {
 
         IamAuthenticator authenticator = new IamAuthenticator("8nwN0eKp7eZ73So4DLdPndp_yv-vtlI27pN1wK2TjVg1");
         VisualRecognition visualRecognition = new VisualRecognition("2019-07-12", authenticator);
@@ -197,6 +198,45 @@ public class ViewController {
     ) throws ParseException {
 //        return emologService.insert(user, friend, emoji);
         return emologService.insert(123, 456, "U+1F600");
+    }
+
+    //関数もおいちゃえ
+    public static List<String> get_NLU_keywords(String username, long tweet_id) throws TwitterException {
+        QueryResult result = search_user(username, tweet_id);
+        ArrayList<String> NLU_results = new ArrayList<>();
+
+        for (Status status : result.getTweets()) {
+            String tmp = NLU(status.getText());
+            if(tmp != null) {
+//                System.out.println(tmp);
+                NLU_results.add(tmp);
+            }
+        }
+
+        return NLU_results;
+        //TODO: 整形する必要あるかも？
+    }
+
+
+    public static List<String> get_image_keywords(String username, long tweet_id) throws Exception {
+        QueryResult result = search_user(username, tweet_id);
+        ArrayList<String> imageprocessing_results = new ArrayList<>();
+
+        for (Status status : result.getTweets()) {
+            if(status.getMediaEntities().length > 0) {
+//                System.out.println(status.getMediaEntities()[0].getMediaURL());
+
+                String tmp = ImageProcessing(status.getMediaEntities()[0].getMediaURL());
+                if (tmp != null) {
+//                    System.out.println(tmp);
+                    imageprocessing_results.add(tmp);
+                }
+            }
+        }
+
+        return imageprocessing_results;
+//                ["call center", "people", "newsreader"]みたいなんがくる。
+
     }
 
 }
