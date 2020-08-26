@@ -21,26 +21,27 @@ import java.time.LocalDateTime;
 @Data
 @Getter
 @Setter
-public class Emolog implements Serializable {
+public class Friend implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @Id
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @NotNull
-
     @Size(max=30)
     private Integer userid;
 
     @NotNull
-    @Size(max=50)
-    private Integer friendid;
+    @Size(max=30)
+    private String name;
 
-    @NotNull
-    @Max(40)
+    @Max(30)
     private String latestemolog;
 
-    private LocalDateTime create_at;
+    private LocalDateTime updated_at;
+
+
+
 }
