@@ -26,8 +26,8 @@ public class ScheduledTasks {
 //    initialDelay:	指定時間後に最初のtaskを開始する. 単位はms. fixedDelay又はfixedRateと組み合わせて使用する.
 //    cron:	        cronで指定した周期でtaskを実行する.
 //    zone:	        cronの起動時間のタイムゾーンを指定する. 未指定時はデフォルトのtimezoneを使用する.
-    @Scheduled(fixedRate = 30000)
-    public void createEmolog() throws ParseException {
+//    @Scheduled(fixedRate = 300000)
+    public void createEmolog() throws Exception {
         emologService.createEmolog();
     }
 }

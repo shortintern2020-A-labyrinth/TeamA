@@ -9,8 +9,10 @@ import com.example.demo.repository.FriendRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.ModelMap;
+import twitter4j.QueryResult;
 import twitter4j.TwitterException;
 
+import javax.validation.constraints.Null;
 import java.text.ParseException;
 import java.time.LocalDateTime;
 import java.util.*;
@@ -23,6 +25,9 @@ public class EmologService {
 
     @Autowired
     FriendRepository friendRepository;
+
+//    @Autowired
+    EmologOutput emologOutput;
 
 
     public Emolog selectById(int friendemologId){
@@ -57,45 +62,44 @@ public class EmologService {
         LocalDateTime created_at = LocalDateTime.now();
         int count = 0;
         for (Friend friend : friends) {
-            ////
-            List<String> keyword_tweets = new ArrayList<String>();
-            List<String> keyword_images = new ArrayList<String>();
-
-
+            //////////
             //TODO: 「取得した最新のtweet_idを保存して次のバッチ処理ではそのtweet_id以降を取得」って処理がまだ出来てない。
-            keyword_tweets = ViewController.get_NLU_keywords(friend.getName(), );
-            keyword_images = ViewController.get_image_keywords(friend.getName(), 100000);
+            try {
+                QueryResult result = emologOutput.querySearch(friend.getName(), friend.getLasttweetid());
+
+            List<String> keywords = emologOutput.calcKeywords(result);
 
             List<String> emojiList = new ArrayList<String>();
 
-            // 文字列整形の方(テキトーに::をつける方)
-            for( String keyword : keyword_tweets){
-                emojiList.add(EmologOutput.convertEmoji(keyword));
-            }
-
-            for( String keyword : keyword_images) {
+            for( String keyword : keywords){
                 emojiList.add(EmologOutput.convertEmoji(keyword));
             }
 
             // emojiList : ["&#128515", "&#128515", "&#128515"] みたいな感じ。
             // emojiListから一つの文字列に直す。
             String emologStr = String.join("", emojiList);
-            ////
-//            String emologStr = "/*[ ここにEmologを生成する処理 ]*/";
+
+            //////////
             friend.setLatestemolog(emologStr);
             friend.setUpdated_at(created_at);
+            friend.setLasttweetid((int)result.getMaxId());
             Emolog e = new Emolog();
             e.setContents(emologStr);
             e.setFriendid(friend.getId());
             e.setUserid(friend.getUserid());
             e.setCreated_at(created_at);
             e.setId((int) Calendar.getInstance().getTimeInMillis() + count);
-            newEmologs.add(e);
+//            newEmologs.add(e);
+            emologRepository.insert(e);
             count++;
+
+            }
+            catch(NullPointerException e){ }
         }
 
         friendRepository.updateAll(friends);
-        emologRepository.insertAll(newEmologs);
+//        emologRepository.insertAll(newEmologs);
+
 
     }
 

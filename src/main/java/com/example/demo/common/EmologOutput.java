@@ -20,25 +20,21 @@ public class EmologOutput {
      //input:  (username, tweet_id)
      //output: ArrayList keywords
      */
-    public List<String> calcNLUKeywords(String username, long tweet_id) throws TwitterException, FileNotFoundException {
-        QueryResult result = querySearch(username, tweet_id);
-        ArrayList<String> textKeywords = new ArrayList<>();
-        ArrayList<String> imageKeywords = new ArrayList<>();
-        ArrayList<String> keywords = new ArrayList<>();
+    public List<String> calcKeywords(QueryResult result) throws TwitterException, FileNotFoundException {
+
+        List<String> keywords = new ArrayList<String>();
 
         for (Status status : result.getTweets()) {
             if(status.getMediaEntities().length > 0) {
                 String tmp = watsonImage(status.getMediaEntities()[0].getMediaURL());
                 if (!StringUtils.isBlank(tmp)) {
 //                    System.out.println(tmp);
-                    imageKeywords.add(tmp);
                     keywords.add(tmp);
                 }
             }
             String tmp = watsonNLU(status.getText());
             if(!StringUtils.isBlank(tmp)) {
 //                System.out.println(tmp);
-                textKeywords.add(tmp);
                 keywords.add(tmp);
             }
         }
@@ -51,7 +47,7 @@ public class EmologOutput {
      //input:  long tweet_id
      //output: QueryResult
      */
-    private QueryResult querySearch(String username, long tweet_id) throws TwitterException {
+    public QueryResult querySearch(String username, long tweet_id) throws TwitterException {
         // 初期化
         Twitter twitter = new TwitterFactory().getInstance();
         Query query = new Query();

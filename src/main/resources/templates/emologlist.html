@@ -27,13 +27,21 @@
 
           <!-- 本当はjava でデータを取ってきてすべて表示　例を書く-->
          <ul>
-         <ul class="friend_ul" th:each="emolog:${emologs}">
-             <li><a th:href="'../../chat/'+${emolog.id}">
+         <ul class="friend_ul" th:each="emolog : ${emologs}">
+             <li>
+                 <a th:href="'../../chat/' + ${emolog.id}">
                  <!--<p class="emolog-date" th:text="|${#dates.month(${emolog.created_at})} 月 ${#dates.day(${emolog.created_at})} 日|">8月18日<p>
                  相手のエモログの表示-->
                  <p class="emoji" th:text="${emolog.contents}" >&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;</p>
                  <img th:src="@{/images/arrow.png}" alt="emolog_arrow">
-             </a>
+                </a>
+             </li>
+             <li>
+                 <a th:href="'../../chat/' + ${friend}">
+                     <!--<p class="emolog-date" th:text="|${#dates.month(${emolog.created_at})} 月 ${#dates.day(${emolog.created_at})} 日|">8月18日<p>
+                     相手のエモログの表示-->
+                     <p class="emoji" th:text="${friend}" >&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;</p>
+                 </a>
              </li>
              <!--静的サンプル表示部分-->
 <!--                <li><a href="chat">-->

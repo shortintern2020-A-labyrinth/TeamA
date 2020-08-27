@@ -19,7 +19,7 @@ create table friend (
                         name varchar(30) not null,
                         latestemolog varchar(30),
                         updated_at timestamp,
-                        lasttweetid INTEGER
+                        lasttweetid INTEGER DEFAULT 0
 );
 
 create table emolog (
@@ -59,7 +59,11 @@ insert into friend(userid, name, latestemolog, updated_at) values
 (456, 'banana.chocomint', '🍈🍓🍌', '2002-02-02 02:02:02'),
 (789, 'pinapple.chocomint', '🍊🥝🍎', '2003-03-03 03:03:03'),
 (321, 'apple.chocomint', '🍋🍇🍈', '2004-04-04 04:04:04'),
-(654, 'lemon.chocomint', '🍓🍌🍊', '2005-05-05 05:05:05')
+(654, 'lemon.chocomint', '🍓🍌🍊', '2005-05-05 05:05:05'),
+(1919, 'CNN', '🦍🍗🚽', '2005-05-05 05:05:05'),
+(810, 'samurai_badass', '🌮🌾🥢', '2005-05-05 05:05:05'),
+(114, 'capital_noodle', '💃💃💃', '2005-05-05 05:05:05'),
+(514, 'roland_0fficial', '😲😲😲', '2005-05-05 05:05:05')
 ;
 
 insert into emolog(userid, friendid, created_at, contents) values
