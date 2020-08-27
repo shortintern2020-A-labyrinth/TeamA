@@ -4,6 +4,7 @@ import com.example.demo.dao.EmologDao;
 import com.example.demo.dao.SampleDao;
 import com.example.demo.entity.Emolog;
 import com.example.demo.entity.Sample;
+import org.seasar.doma.BatchInsert;
 import org.seasar.doma.Insert;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -24,5 +25,10 @@ public class EmologRepository {
     @Insert
     public int insert(Emolog e) {
         return dao.insert(e);
+    }
+
+    @BatchInsert
+    public int[] insertAll(List<Emolog> emologs){
+        return dao.insertAll(emologs);
     }
 }

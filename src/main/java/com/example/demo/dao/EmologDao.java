@@ -2,6 +2,7 @@ package com.example.demo.dao;
 
 import com.example.demo.entity.Emolog;
 import com.example.demo.entity.Sample;
+import org.seasar.doma.BatchInsert;
 import org.seasar.doma.Dao;
 import org.seasar.doma.Insert;
 import org.seasar.doma.Select;
@@ -20,4 +21,7 @@ public interface EmologDao {
 
     @Insert
     int insert(Emolog e);
+
+    @BatchInsert
+    int[] insertAll(List<Emolog> e);
 }
