@@ -22,4 +22,7 @@ public interface FriendDao {
 
     @BatchUpdate
     int[] updateAll(List<Friend> friends);
+
+    @Select
+    Friend select(int userid, int friendid);
 }

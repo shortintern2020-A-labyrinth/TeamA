@@ -16,53 +16,33 @@ import java.util.List;
 
 public class EmologOutput {
 
-
-    /** ユーザ名とidによるツイートテキストからキーワードのリストを抽出
-     //input:  String username
-     //input:  long tweet_id
-     //output: Stringlist keywords
+    /** text to keyword
+     //input:  (username, tweet_id)
+     //output: ArrayList keywords
      */
-    public List<String> collectNLUkeywords(String username, long tweet_id
-    ) throws TwitterException {
+    public List<String> calcNLUKeywords(String username, long tweet_id) throws TwitterException, FileNotFoundException {
         QueryResult result = querySearch(username, tweet_id);
-        ArrayList<String> NLU_results = new ArrayList<>();
-
-        for (Status status : result.getTweets()) {
-            String tmp = calcNLUKeyword(status.getText());
-            if(!StringUtils.isBlank(tmp)) {
-//                System.out.println(tmp);
-                NLU_results.add(tmp);
-            }
-        }
-        return NLU_results;
-    }
-
-
-    /** ユーザ名とidによるツイート画像からキーワードのリストを抽出
-     //input:  String username
-     //input:  long tweet_id
-     //output: StringList keywords
-     */
-    public List<String> collectImagekeywords(String username, long tweet_id
-    ) throws Exception {
-        QueryResult result = querySearch(username, tweet_id);
-        ArrayList<String> imageprocessing_results = new ArrayList<>();
+        ArrayList<String> textKeywords = new ArrayList<>();
+        ArrayList<String> imageKeywords = new ArrayList<>();
+        ArrayList<String> keywords = new ArrayList<>();
 
         for (Status status : result.getTweets()) {
             if(status.getMediaEntities().length > 0) {
-//                System.out.println(status.getMediaEntities()[0].getMediaURL());
-
-                String tmp = calcImageKeyword(status.getMediaEntities()[0].getMediaURL());
-                if(!StringUtils.isBlank(tmp)) {
+                String tmp = watsonImage(status.getMediaEntities()[0].getMediaURL());
+                if (!StringUtils.isBlank(tmp)) {
 //                    System.out.println(tmp);
-                    imageprocessing_results.add(tmp);
+                    imageKeywords.add(tmp);
+                    keywords.add(tmp);
                 }
             }
+            String tmp = watsonNLU(status.getText());
+            if(!StringUtils.isBlank(tmp)) {
+//                System.out.println(tmp);
+                textKeywords.add(tmp);
+                keywords.add(tmp);
+            }
         }
-
-        return imageprocessing_results;
-//                ["call center", "people", "newsreader"]みたいなんがくる。
-
+        return keywords;
     }
 
 
@@ -88,7 +68,7 @@ public class EmologOutput {
      //input:  String text
      //output: String keyword
      */
-    private String calcNLUKeyword(String text) {
+    private String watsonNLU(String text) {
         IamAuthenticator authenticator = new IamAuthenticator("fVfaYMA7tCh4zInWBhTBb5t69xQryK7ObKl42nampynG");
         NaturalLanguageUnderstanding naturalLanguageUnderstanding = new NaturalLanguageUnderstanding("2019-07-12", authenticator);
         naturalLanguageUnderstanding.setServiceUrl("https://api.jp-tok.natural-language-understanding.watson.cloud.ibm.com/instances/ac3df365-93f6-4255-beb8-620d66041251");
@@ -126,7 +106,7 @@ public class EmologOutput {
      //input:  String imageUrl
      //output: String keyword
      */
-    private String calcImageKeyword(String url) throws FileNotFoundException {
+    private String watsonImage(String url) throws FileNotFoundException {
         IamAuthenticator authenticator = new IamAuthenticator("8nwN0eKp7eZ73So4DLdPndp_yv-vtlI27pN1wK2TjVg1");
         VisualRecognition visualRecognition = new VisualRecognition("2019-07-12", authenticator);
 
@@ -164,47 +144,8 @@ public class EmologOutput {
             return emoji.getUnicode();
         }
     }
-
-     /** text to keyword
-     //input:  (username, tweet_id)
-     //output: ArrayList keywords
-     */
-    public List<String> calcNLUKeywords(String username, long tweet_id) throws TwitterException {
-        QueryResult result = querySearch(username, tweet_id);
-        ArrayList<String> keywords = new ArrayList<>();
-
-        for (Status status : result.getTweets()) {
-            String tmp = calcNLUKeyword(status.getText());
-            if(tmp != null) {
-//                System.out.println(tmp);
-                keywords.add(tmp);
-            }
-        }
-        return keywords;
-    }
-
-    /** image to keyword
-    //input:  (username, tweet_id)
-    //output: ArrayList keywords
-     */
-    public List<String> calcImageKeywords(String username, long tweet_id) throws Exception {
-        QueryResult result = querySearch(username, tweet_id);
-        ArrayList<String> keywords = new ArrayList<>();
-
-        for (Status status : result.getTweets()) {
-            if(status.getMediaEntities().length > 0) {
-//                System.out.println(status.getMediaEntities()[0].getMediaURL());
-
-                String tmp = calcImageKeyword(status.getMediaEntities()[0].getMediaURL());
-                if (tmp != null) {
-//                    System.out.println(tmp);
-                    keywords.add(tmp);
-                }
-            }
-        }
-
-        return keywords;
-//                ["call center", "people", "newsreader"]みたいなんがくる。
-
-    }
 }
+
+
+
+

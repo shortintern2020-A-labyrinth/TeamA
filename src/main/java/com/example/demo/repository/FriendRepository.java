@@ -26,4 +26,8 @@ public class FriendRepository {
     public int[] updateAll(List<Friend> friends){
         return dao.updateAll(friends);
     }
+
+    public Friend select(int userid, int friendid){
+        return dao.select(userid, friendid);
+    }
 }

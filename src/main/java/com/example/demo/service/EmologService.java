@@ -41,7 +41,7 @@ public class EmologService {
         List<Friend> friends = friendRepository.selectAllRecord();
 
         //TODO　ここにEmolog生成処理記述
-        List<Emolog> newEmologs = null;
+        List<Emolog> newEmologs = new ArrayList<Emolog>();
         LocalDateTime created_at = LocalDateTime.now();
         int count = 0;
         for (Friend friend : friends) {
