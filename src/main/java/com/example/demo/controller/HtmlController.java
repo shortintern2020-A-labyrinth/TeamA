@@ -1,6 +1,9 @@
 package com.example.demo.controller;
 
+import com.example.demo.common.EmologOutput;
+import com.example.demo.service.EmologService;
 import com.vdurmont.emoji.EmojiManager;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.ModelMap;
 import com.vdurmont.emoji.EmojiParser;
 import org.springframework.stereotype.Controller;
@@ -15,10 +18,15 @@ import java.util.List;
 @Controller
 @RequestMapping(path = "/")
 public class HtmlController {
+
+    @Autowired
+    EmologService emologService;
+
     @RequestMapping(path = "/", method = RequestMethod.GET)
     public String index() {
         return "index";
     }
+
 
     @RequestMapping(path = "/enter", method = RequestMethod.GET)
     public String crawling(
@@ -38,16 +46,18 @@ public class HtmlController {
         // 文字列整形の方(テキトーに::をつける方)
         for( String keyword : keyword_tweets){
             try{
-                String tmp = EmojiParser.parseToHtmlDecimal(":" + keyword + ":");
-                emojiList.add(tmp);
+//                String tmp = EmojiParser.parseToHtmlDecimal(":" + keyword + ":");
+//                emojiList.add(tmp);
+                emojiList.add(EmologOutput.convertEmoji(keyword));
             }
             catch (NullPointerException ignored){}
         }
 
         for( String keyword : keyword_images){
             try{
-                String tmp = EmojiParser.parseToHtmlDecimal(":" + keyword + ":");
-                emojiList.add(tmp);
+//                String tmp = EmojiParser.parseToHtmlDecimal(":" + keyword + ":");
+//                emojiList.add(tmp);
+                emojiList.add(EmologOutput.convertEmoji(keyword));
             }
             catch (NullPointerException ignored){}
         }
@@ -61,9 +71,12 @@ public class HtmlController {
         String emolog = String.join("", emojiList);
 
 
-        //TODO: ここで得られたemologをdbに登録する処理…
+        //TODO: ここで得られたemologをdbに登録する処理. EmologServiceに処理は任せてある。
         // emolog(userid, friendid, create_at, contents)
         // userid = 1, friendid = 2, create_at = TIMESTAMP??, contents = emolog
+
+        emologService.createEmolog(emolog);
+
 
         return "friendlist";
     }

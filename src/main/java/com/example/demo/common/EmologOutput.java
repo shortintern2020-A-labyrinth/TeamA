@@ -129,7 +129,7 @@ public class EmologOutput {
      //input:  String keyword
      //output: emoji (Unicode)
      */
-    public String convertEmoji(String keyword) {
+    public static String convertEmoji(String keyword) {
         keyword = keyword.replace(" ", "_"); //空白を_に置換
         keyword = ":" + keyword + ":";
         Emoji emoji;

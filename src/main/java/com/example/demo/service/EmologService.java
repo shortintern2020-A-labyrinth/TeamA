@@ -45,7 +45,7 @@ public class EmologService {
         return emologRepository.selectAll(user, friend);
     }
 
-    public void createEmolog() throws ParseException {
+    public void createEmolog(String emologStr) throws ParseException {
         List<Friend> friends = friendRepository.selectAllRecord();
 
         //TODO　ここにEmolog生成処理記述
@@ -53,7 +53,7 @@ public class EmologService {
         LocalDateTime created_at = LocalDateTime.now();
         int count = 0;
         for (Friend friend : friends) {
-            String emologStr = "/*[ ここにEmologを生成する処理 ]*/";
+//            String emologStr = "/*[ ここにEmologを生成する処理 ]*/";
             friend.setLatestemolog(emologStr);
             friend.setUpdated_at(created_at);
             Emolog e = new Emolog();
