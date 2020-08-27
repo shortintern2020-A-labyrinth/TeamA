@@ -16,4 +16,8 @@ public class FriendService {
     public List<Friend> selectAll(int user){
         return repository.selectAll(user);
     }
+
+    public Friend select(int userid, int friendid){
+        return repository.select(userid, friendid);
+    }
 }
