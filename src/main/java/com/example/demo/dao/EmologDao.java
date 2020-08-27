@@ -8,6 +8,7 @@ import org.seasar.doma.Select;
 import org.seasar.doma.boot.ConfigAutowireable;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.List;
 
@@ -17,6 +18,12 @@ public interface EmologDao {
 
     @Select
     List<Emolog> selectAll(int user, int friend);
+
+    @Select
+    Emolog selectById(int id);
+
+    @Select
+    Emolog selectByDay(int userid, int friendid, LocalDateTime created_at);
 
     @Insert
     int insert(Emolog e);
