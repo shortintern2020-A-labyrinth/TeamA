@@ -30,12 +30,12 @@
               <p class="emolog-date" th:text="${date}">8/18</p>
             </li>
             <li class="emolog-show">
-              <!--自分のエモログの表示-->
-              <!--<p class="emoji">&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;</p> -->
-              <p class="emoji" th:text="${FriendEmolog}"></p>
-              <p>朝 <img th:src="@{images/arrow.png}" alt="emolog_arrow"> 夜</p>
               <!--相手のエモログの表示-->
-              <p class="emoji" th:text="${MyEmolog}"></p>
+              <!--<p class="emoji">&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;</p> -->
+              <p class="emoji" th:text="${FriendEmolog ['contents']}"></p>
+              <p>朝 <img th:src="@{images/arrow.png}" alt="emolog_arrow"> 夜</p>
+              <!--自分のエモログの表示-->
+              <p class="emoji" th:text="${MyEmolog ['contents']}"></p>
             </li>
           </ul>
           

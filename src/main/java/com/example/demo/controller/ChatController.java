@@ -1,6 +1,8 @@
 package com.example.demo.controller;
 
 
+import com.example.demo.entity.Emolog;
+import com.example.demo.service.EmologService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,69 +22,39 @@ import org.springframework.stereotype.Controller;
 
 //chatページの表示
 @Controller
-@RequestMapping(path = "/")
+@RequestMapping(path = "/chat")
 public class ChatController {
 
     @Autowired
     JdbcTemplate jdbcTemplate;
 
-    @RequestMapping(path = "/chat", method = RequestMethod.GET)
-    public String chat(Model model){
+    @Autowired
+    EmologService service;
+
+    @RequestMapping(path = "/{emologid}", method = RequestMethod.GET)
+    public String chat(@PathVariable("emologid") String emologid, Model model){
+        int friendemologId = Integer.parseInt(emologid);
         //日付
         //Date date = new Date();
 
         String date = "8月18日";
         model.addAttribute("date", date);
 
-        //絵文字
-        //データを受け取る
+
         int u_id = 1;
         int f_id = 2;
-        //SELECT contents FROM emolog WHERE userid== AND friendid AND create_at==date;
-        /*List<Map<String, Object>> emojilist;
-        emojilist = jdbcTemplate.queryForList("SELECT * FROM emolog");
-        String MyEmolog ="";
-        String FriendEmolog ="";
-        for(Map<String, Object> map : emojilist) {
-            if(u_id == (Integer)map.get("userid") && f_id == (Integer)map.get("friendid") ){ 
-                //本当は一日分なので日付も欲しいですが
-                MyEmolog += map.get("contents");
-            }else if(f_id == (Integer)map.get("userid") && u_id == (Integer)map.get("friendid")){
-                FriendEmolog +=map.get("contents");
-             }
-        }*/
+
+        Emolog friendEmolog = service.selectById(friendemologId);
+        Emolog myEmolog = service.selectByDay(friendEmolog);
 
         //絵文字の表示部分
         //相手側
-        //String text = "An 😀awesome 😃string with a few 😉emojis!";
-        String text = ":grinning: :smiley: :wink: :radio: :credit_card: ";
-        //String text =FriendEmolog;
-        text = EmojiParser.parseToUnicode(text);
-        model.addAttribute("FriendEmolog", text);
+        model.addAttribute("FriendEmolog", friendEmolog);
         //自分側
         //text=MyEmolog;
-        text = EmojiParser.parseToUnicode(text);
-        model.addAttribute("MyEmolog", text);
+        model.addAttribute("MyEmolog", myEmolog);
 
 
-         //チャット部分の表示
-         /*List<Map<String, Object>> list;
-         //list = jdbcTemplate.queryForList("select * from users");
-         list = jdbcTemplate.queryForList("SELECT * FROM talk");
-         
-         String MyMessage ="";
-         String FriendMessage ="";
-         for(Map<String, Object> map : list) {
-             if(u_id == (Integer)map.get("userid") && f_id == (Integer)map.get("friendid") ){ 
-                 //本当は一日分なので日付も欲しいですが
-                MyMessage += map.get("contents");
-             }else if(f_id == (Integer)map.get("userid") && u_id == (Integer)map.get("friendid")){
-                FriendMessage +=map.get("contents");
-             }
-         }
-         model.addAttribute("MyChatMessage", MyMessage);
-         model.addAttribute("FriendChatMessage", FriendMessage);*/
-         
         return "chat";
     }
 

@@ -21,6 +21,14 @@ public class EmologService {
     FriendRepository friendRepository;
 
 
+    public Emolog selectById(int friendemologId){
+        return repository.selectById(friendemologId);
+    }
+
+    public Emolog selectByDay(Emolog friendEmolog){
+        return repository.selectByDay(friendEmolog.getFriendid(), friendEmolog.getUserid(), friendEmolog.getCreated_at());
+    }
+
     public List<Emolog> selectAll(int user, int friend){
         return emologRepository.selectAll(user, friend);
     }
