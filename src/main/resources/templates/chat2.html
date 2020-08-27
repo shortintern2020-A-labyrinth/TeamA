@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="jp" dir="ltr" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <title>チャットページ</title>
+    <link href="https://fonts.googleapis.com/css?family=Bitter:400,700" rel="stylesheet">
+    <!-- <link href="css/style.css" rel="stylesheet"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+   <script type="text/javascript" src="js/jquery-3.5.1.js"></script>
+   <script type="text/javascript" src="js/bootstrap.js"></script>
+
+  </head>
+  <body id="chatpage">
+
+     <div class="container">
+      <div class="page" >
+        <div class="row">
+          <div class="col-lg-4 pull-left">
+            <a href="emologlist.html"> <img src="images/arrow_left_24.png" alt="backbutton" class="img-responsive"></a>
+          </div>
+          <div class="col-lg-8 friend-name">
+              <H2>hogeさん</H2>
+          </div>
+        </div>
+      </div>
+       <div class="page" >
+        <div class="row">
+          <div class="col-lg-4 clearfix">
+            <H3>8/18</H3>
+          </div>
+          <div class="col-xs-6"><H4>朝</H4></div>
+          <div class="col-xs-6 text-right"><H4>夜</H4> </div
+        </div>
+        <div class="row">
+          <div class="col-lg-8">
+            <p class="emoji text-center">&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6 text-center">
+              <img src="images/arrow.png" alt="emolog_arrow" class="text-center">
+          </div>
+
+          <div class="col-lg-3">
+          <p class="emoji text-center">&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;</p>
+        </div>
+        </div>
+      </div>
+       <div class="page">
+        <section class="card">
+          <div class="card-header">
+          </div>
+          <div class="card-body">
+            <div class="media">
+              <div class="media-left">
+                <a href="#" class="icon-rounded">S</a>
+              </div>
+              <div class="media-body">
+                <h4 class="media-heading">Suzuki Taro Date:2016/09/01</h4>
+                <div>この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。</div>
+              </div>
+            </div>
+            <hr>
+            <div class="media">
+              <div class="media-body">
+                <h4 class="media-heading">Tanaka Jiro Date:2016/09/01</h4>
+                <div>この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。</div>
+              </div>
+              <div class="media-right">
+                <a href="#" class="icon-rounded">T</a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <form class="chart-form">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Comment">
+              <div class="input-group-append">
+                <button class="btn btn-info" type="button">SEND</button>
+              </div>
+            </div>
+          </form>
+        </section>
+    </div>
+  </body>
+</html>

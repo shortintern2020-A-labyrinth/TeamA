@@ -1,276 +1,242 @@
-@charset "UTF-8";
-html,body {
-  padding: 0;
-  margin: 0;
+html, body {
   height: 100%;
-  overflow: hidden;
+  font-family: "Hiragino Kaku Gothic ProN","メイリオ", sans-serif;
+  font-size: 14px;
+  line-height: 1.42857143;
+  background-color: rgba(255, 251, 251, 0.78);
 }
+
+.page {
+  max-width: 960px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 10px;
+  background-color: #fff;
+  border-left: 1px solid #DDDDDD;
+  border-right: 1px solid #DDDDDD;
+  box-shadow: 0 0 15px #DDDDDD;
+}
+
+.page .card .media-body {
+  padding: 18px;
+  margin: 0 10px;
+  background-color: #F5F5F5;
+  border-radius: 10px;
+  font-size: 15px;
+  word-break: break-all;
+}
+
+.page .card .media-body h4.media-heading {
+  color: #999999;
+  font-size: 13px;
+}
+
+.page .card .card-block {
+  padding: 10px;
+}
+
+.page .card a.icon-rounded {
+  display: block;
+  font-size: 28px;
+  color: #fff;
+  text-align: center;
+  margin: 5px;
+  padding: 5px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.page .card .media-left a.icon-rounded {
+  background-color: #f0ad4e;
+}
+
+.page .card .media-right a.icon-rounded {
+  background-color: #5cb85c;
+}
+
+.page .chart-form {
+  margin: 20px 0;
+}
+
+@import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
 
 body {
-  background-color: #ffffff;
-  color: #000000;
-  font-size: 15x;
-  line-height: 2;
+    padding: 30px 0px 60px;
+}
+.panel > .list-group .list-group-item:first-child {
+    /*border-top: 1px solid rgb(204, 204, 204);*/
+}
+@media (max-width: 767px) {
+    .visible-xs {
+        display: inline-block !important;
+    }
+    .block {
+        display: block !important;
+        width: 100%;
+        height: 1px !important;
+    }
+}
+#back-to-bootsnipp {
+    position: fixed;
+    top: 10px; right: 10px;
 }
 
-h1 {
-  font-size:100px;
-  line-height: 1;
-  color:#000000;
-  font-family: 'Bitter',serif;
+
+.c-search > .form-control {
+   border-radius: 0px;
+   border-width: 0px;
+   border-bottom-width: 1px;
+   font-size: 1.3em;
+   padding: 12px 12px;
+   height: 44px;
+   outline: none !important;
+}
+.c-search > .form-control:focus {
+    outline:0px !important;
+    -webkit-appearance:none;
+    box-shadow: none;
+}
+.c-search > .input-group-btn .btn {
+   border-radius: 0px;
+   border-width: 0px;
+   border-left-width: 1px;
+   border-bottom-width: 1px;
+   height: 44px;
 }
 
-p {
-  font-family: 'Bitter',serif;
+
+.c-list {
+    padding: 0px;
+    min-height: 44px;
+}
+.title {
+    display: inline-block;
+    font-size: 1.7em;
+    font-weight: bold;
+    padding: 5px 15px;
+}
+ul.c-controls {
+    list-style: none;
+    margin: 0px;
+    min-height: 44px;
 }
 
-p,h1,h2,h3,h4,h5,h6 {
-  margin-top: 0;
+ul.c-controls li {
+    margin-top: 8px;
+    float: left;
 }
 
-img {
-  vertical-align: bottom;
+ul.c-controls li a {
+    font-size: 1.7em;
+    padding: 11px 10px 6px;
+}
+ul.c-controls li a i {
+    min-width: 24px;
+    text-align: center;
 }
 
-ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+ul.c-controls li a:hover {
+    background-color: rgba(51, 51, 51, 0.2);
 }
 
-a {
-  color: #3583aa;
-  text-decoration: none;
+.c-toggle {
+    font-size: 1.7em;
 }
 
-a:visited {
-  color: #788d98;
+.name {
+    font-size: 1.7em;
+    font-weight: 700;
 }
 
-a:hover {
+.c-info {
+    padding: 5px 10px;
+    font-size: 1.25em;
+}
+
+ul.global-navi{
+	padding:0px;
+	margin:0px;
+	list-style-type:none;
+	overflow:hidden;
+	background-color:#333;
+
+}
+
+li{
+	float:left;
+}
+li a{
+	display:block;
+	color:#fff;
+	  padding: 14px 16px;
+	  text-decoration:none;
+	  font-size:19px;
+}
+li a:hover{
+	background-color: #f2f2f2;
+	color:#000;
+}
+.active{
+	color:#fff;
+	background-color:green;
+
+}
+
+body#LoginForm{ background-image:url("https://hdwallsource.com/img/2014/9/blur-26347-27038-hd-wallpapers.jpg"); background-repeat:no-repeat; background-position:center; background-size:cover; padding:10px;}
+
+.form-heading { color:#fff; font-size:23px;}
+.panel h2{ color:#444444; font-size:18px; margin:0 0 8px 0;}
+.panel p { color:#777777; font-size:14px; margin-bottom:30px; line-height:24px;}
+.login-form .form-control {
+  background: #f7f7f7 none repeat scroll 0 0;
+  border: 1px solid #d4d4d4;
+  border-radius: 4px;
+  font-size: 14px;
+  height: 50px;
+  line-height: 50px;
+}
+.main-div {
+  background: #ffffff none repeat scroll 0 0;
+  border-radius: 2px;
+  margin: 10px auto 30px;
+  max-width: 38%;
+  padding: 50px 70px 70px 71px;
+}
+
+.login-form .form-group {
+  margin-bottom:10px;
+}
+.login-form{ text-align:center;}
+.forgot a {
+  color: #777777;
+  font-size: 14px;
   text-decoration: underline;
 }
-
-.header {
-  width: 960px;
-  margin: 0 auto;
-  border: solid 1px #000000;
-  height: 15%;
-}
-
-#wrap {
-  clear: both;
-  padding: 0;
-  margin: 0;
-  height: 85%;
-}
-
-.content {
-  width: 960px;
-  margin: 0 auto;
-  height: 100%;
-  background-color: #fffacd;
-}
-
-.global-nav {
-  height: 10%;
+.login-form  .btn.btn-primary {
+  background: #f0ad4e none repeat scroll 0 0;
+  border-color: #f0ad4e;
+  color: #ffffff;
+  font-size: 14px;
   width: 100%;
-
-  width: 960px;
-  margin: 0 auto;
-  position: fixed;
-  bottom: 0;
+  height: 50px;
+  line-height: 50px;
+  padding: 0;
 }
-
-.global-nav li{
-  background-color: #f0f8ff;
-  width: 33%;
-  float: left;
-  margin: 5px 1px;
-  text-align: center;
-  font-size: 20px;
-  list-style: none;
-  font-family: 'Bitter',serif;
+.forgot {
+  text-align: left; margin-bottom:30px;
 }
-
-.global-nav li a{
-  padding: 5px 5%;
- }
-
-
-.global-nav li a:hover{
-  border-bottom: 2px solid;
-  padding-bottom: 3px;
-  text-decoration: none;
+.botto-text {
+  color: #ffffff;
+  font-size: 14px;
+  margin: auto;
 }
-
-/* chat.html 部分*/
+.login-form .btn.btn-primary.reset {
+  background: #ff9900 none repeat scroll 0 0;
+}
+.back { text-align: left; margin-top:10px;}
+.back a {color: #444444; font-size: 13px;text-decoration: none;}
 
 .friend-name {
-  font-size: 20px;
-  font-family: 'Bitter',serif;
-}
-ul.header_ul{
-  width: 100%;
-}
-ul.header_ul li{
-    display: inline-block;
-    vertical-align:middle;
-    margin: 0;
-    padding: 0;
-    width: 45%;
-}
-
-.emolog {
-  margin: 0;
-  width: 100%;
-  height: 30%;
-  background-color: #f5f5f5;
-  padding: 5px 5px;
-}
-.chat {
-  padding: 0;
-  margin: 0;
-  background-color: #fffacd;
-  height: 55%;
-}
-.message {
-  padding: 0;
-  margin: 0;
-  height: 15%;
-  background-color: #FFFFFF;
-}
-
-.emolog_ul {
-    width: 100%;
-
-}
-
-.emolog_ul li {
-    text-align: center;
-    display: inline-block;
-    vertical-align:middle;
-    margin: 0;
-    padding: 0;
-}
-.emolog_ul li.emolog-date-cover {
-  vertical-align:top;
-  width: 10%;
-}
-
-.emolog_ul li.emolog-show  {
-  width: 80%;
-}
-
-.message-box {
-  width: 77%;
-  text-align: left;
-  margin: 0 0;
-  padding: 5px 0;
-}
-
-.message-btn {
-  width: 20%;
-  margin: 0 0;
-  background-color: #009cd3;
-  color: #ffffff;
-  font-size: 20px;
-  font-family: 'Bitter',serif;
-}
-
-/* emologlist.html*/
-.emolog-list {
-  height: 90%;
-  background-color: #f5f5f5;
-  overflow:  auto;
-}
-.emolog-list li {
-  border-bottom: solid 1px #000000;
-  list-style: none;
   text-align: center;
 }
-.emolog-date {
-  float:  left;
-  text-align: left;
-  margin: 5px -5px 0 0;
-  font-size: 18px;
-  font-family: 'Bitter',serif;
-}
-
-/* emologlist.html 終わり*/
-/* friendlist.html*/
-.header_ul_friendlist {
-  width: 100%;
-  height: 100%;
-  text-align: center;
-}
-.header_ul_friendlist li{
-  text-align: center;
-  display: inline-block;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-li .add_img {
-  /*float: right;*/
-  width: 50%;
-  padding: 5px;
-  height: auto;
-}
-.header_ul_friendlist li.add-img-wrap{
-  width: 10%;
-}
-.header_ul_friendlist li.adjust-name {
-  margin:0;
-  width: 10%;
-  height: auto;
-}
-.header_ul_friendlist li.friend-header-name {
-  width: 70%;
-  height: auto;
-  vertical-align:middle;
-  text-align: center;
-  font-size: 18px;
-  font-family: 'Bitter',serif;
-}
-
-.friend_ul_list {
-    width: 100%;
-    height: 100%;
-    text-align: center;
-}
-
-.friend_ul_list li{
-  text-align: center;
-  display: inline-block;
-  vertical-align:top;
-  border-style: hidden;
-  margin: 0;
-  padding: 0;
-}
-.friend_ul a:hover {
-  text-decoration: none;
-}
-
-
-.friend_ul_list li.friend_ul_img {
-   width: 10%;
-   height: auto;
-}
-.friend_ul_list li.friend_ul_name {
-   width: 13%;
-   padding-top: 5px;
-}
-.friend_ul_list li.friend_ul_emolog {
-   padding-top: 5px;
-   width: 75%;
-}
-.friend_ul_list li.friend_ul_emolog p{
-  padding: 0;
-  margin: 0;
-}
-.friend_ul_list li.friend_ul_emolog img{
-  padding: 0;
-  margin: 0;
-}
-/* friendlist.html終わり*/
