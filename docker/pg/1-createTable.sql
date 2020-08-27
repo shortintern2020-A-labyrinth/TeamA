@@ -18,7 +18,8 @@ create table friend (
                         userid INTEGER not null,
                         name varchar(30) not null,
                         latestemolog varchar(30),
-                        updated_at timestamp
+                        updated_at timestamp,
+                        lasttweetid INTEGER
 );
 
 create table emolog (

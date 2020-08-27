@@ -1,11 +1,15 @@
 package com.example.demo.service;
 
+import com.example.demo.common.EmologOutput;
+import com.example.demo.controller.ViewController;
 import com.example.demo.entity.Emolog;
 import com.example.demo.entity.Friend;
 import com.example.demo.repository.EmologRepository;
 import com.example.demo.repository.FriendRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.ModelMap;
+import twitter4j.TwitterException;
 
 import java.text.ParseException;
 import java.time.LocalDateTime;
@@ -45,7 +49,7 @@ public class EmologService {
         return emologRepository.selectAll(user, friend);
     }
 
-    public void createEmolog(String emologStr) throws ParseException {
+    public void createEmolog() throws Exception {
         List<Friend> friends = friendRepository.selectAllRecord();
 
         //TODO　ここにEmolog生成処理記述
@@ -53,6 +57,30 @@ public class EmologService {
         LocalDateTime created_at = LocalDateTime.now();
         int count = 0;
         for (Friend friend : friends) {
+            ////
+            List<String> keyword_tweets = new ArrayList<String>();
+            List<String> keyword_images = new ArrayList<String>();
+
+
+            //TODO: 「取得した最新のtweet_idを保存して次のバッチ処理ではそのtweet_id以降を取得」って処理がまだ出来てない。
+            keyword_tweets = ViewController.get_NLU_keywords(friend.getName(), );
+            keyword_images = ViewController.get_image_keywords(friend.getName(), 100000);
+
+            List<String> emojiList = new ArrayList<String>();
+
+            // 文字列整形の方(テキトーに::をつける方)
+            for( String keyword : keyword_tweets){
+                emojiList.add(EmologOutput.convertEmoji(keyword));
+            }
+
+            for( String keyword : keyword_images) {
+                emojiList.add(EmologOutput.convertEmoji(keyword));
+            }
+
+            // emojiList : ["&#128515", "&#128515", "&#128515"] みたいな感じ。
+            // emojiListから一つの文字列に直す。
+            String emologStr = String.join("", emojiList);
+            ////
 //            String emologStr = "/*[ ここにEmologを生成する処理 ]*/";
             friend.setLatestemolog(emologStr);
             friend.setUpdated_at(created_at);

@@ -27,7 +27,7 @@ public class HtmlController {
         return "index";
     }
 
-
+//この処理いる？バッチ処理できたらいらなそうな気がする。
     @RequestMapping(path = "/enter", method = RequestMethod.GET)
     public String crawling(
             ModelMap modelMap
@@ -40,8 +40,6 @@ public class HtmlController {
         keyword_images = ViewController.get_image_keywords("CNN", 100000);
 
         List<String> emojiList = new ArrayList<String>();
-
-        // TODO: ここでDBアクセスかなんかlook upする??。->つかささんのやつくっつける。
 
         // 文字列整形の方(テキトーに::をつける方)
         for( String keyword : keyword_tweets){
@@ -75,7 +73,7 @@ public class HtmlController {
         // emolog(userid, friendid, create_at, contents)
         // userid = 1, friendid = 2, create_at = TIMESTAMP??, contents = emolog
 
-        emologService.createEmolog(emolog);
+        emologService.createEmolog();
 
 
         return "friendlist";
