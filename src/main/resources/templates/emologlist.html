@@ -27,31 +27,39 @@
 
           <!-- 本当はjava でデータを取ってきてすべて表示　例を書く-->
          <ul>
-            <li><a href="chat">
-              <p class="emolog-date">8月18日<p>
-              <!--相手のエモログの表示-->
-              <p class="emoji">&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;</p>
-              <img src="images/arrow.png" alt="emolog_arrow">
-              </a>
-            </li>
-            <li>
-              <p class="emolog-date">8月17日<p>
-              <!--相手のエモログの表示-->
-              <p class="emoji">&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;</p>
-              <img src="images/arrow.png" alt="emolog_arrow">
-            </li>
-            <li>
-              <p class="emolog-date">8月16日<p>
-              <!--相手のエモログの表示-->
-              <p class="emoji">&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;</p>
-              <img src="images/arrow.png" alt="emolog_arrow">
-            </li>
-            <li>
-              <p class="emolog-date">8月15日<p>
-              <!--相手のエモログの表示-->
-              <p class="emoji">&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;</p>
-              <img src="images/arrow.png" alt="emolog_arrow">
-            </li>
+         <ul class="friend_ul" th:each="emolog:${emologs}">
+             <li><a th:href="'../../chat/'+${emolog.id}">
+                 <!--<p class="emolog-date" th:text="|${#dates.month(${emolog.created_at})} 月 ${#dates.day(${emolog.created_at})} 日|">8月18日<p>
+                 相手のエモログの表示-->
+                 <p class="emoji" th:text="${emolog.contents}" >&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;</p>
+                 <img th:src="@{/images/arrow.png}" alt="emolog_arrow">
+             </a>
+             </li>
+             <!--静的サンプル表示部分-->
+<!--                <li><a href="chat">-->
+<!--                  <p class="emolog-date">8月18日<p>-->
+<!--              <p class="emoji">&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;</p>-->
+<!--              <img src="images/arrow.png" alt="emolog_arrow">-->
+<!--              </a>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--              <p class="emolog-date">8月17日<p>-->
+<!--              &lt;!&ndash;相手のエモログの表示&ndash;&gt;-->
+<!--              <p class="emoji">&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;</p>-->
+<!--              <img src="images/arrow.png" alt="emolog_arrow">-->
+<!--            </li>-->
+<!--            <li>-->
+<!--              <p class="emolog-date">8月16日<p>-->
+<!--              &lt;!&ndash;相手のエモログの表示&ndash;&gt;-->
+<!--              <p class="emoji">&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;</p>-->
+<!--              <img src="images/arrow.png" alt="emolog_arrow">-->
+<!--            </li>-->
+<!--            <li>-->
+<!--              <p class="emolog-date">8月15日<p>-->
+<!--              &lt;!&ndash;相手のエモログの表示&ndash;&gt;-->
+<!--              <p class="emoji">&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;</p>-->
+<!--              <img src="images/arrow.png" alt="emolog_arrow">-->
+<!--            </li>-->
           </ul>
        </div>
        <!-- ナビゲーションバーを表示-->
