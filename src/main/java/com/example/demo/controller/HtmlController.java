@@ -65,10 +65,6 @@ public class HtmlController {
         // emolog(userid, friendid, create_at, contents)
         // userid = 1, friendid = 2, create_at = TIMESTAMP??, contents = emolog
 
-
-
-
-
         return "friendlist";
     }
 }
