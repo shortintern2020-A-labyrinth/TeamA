@@ -64,7 +64,7 @@ public class EmologService {
         LocalDateTime created_at = LocalDateTime.now();
         int count = 0;
         for (Friend friend : friends) {
-            //////////
+            //
             //TODO: 「取得した最新のtweet_idを保存して次のバッチ処理ではそのtweet_id以降を取得」って処理がまだ出来てない。
             try {
                 QueryResult result = emologOutput.querySearch(friend.getName(), friend.getLasttweetid());

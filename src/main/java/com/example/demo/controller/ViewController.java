@@ -51,6 +51,9 @@ public class ViewController {
         return list.toString();
     }
 
+    /**
+     * @author Naoto Nishida
+     */
     //TODO: Controllerのままか、返り値の型の調整どうするか考える(フロントとの兼ね合い。)
     @RequestMapping(path = "/twitter_NLU_keyword", method = RequestMethod.GET)
     public List<String> collect_NLU_keywords_from_tweets(
@@ -72,7 +75,9 @@ public class ViewController {
         //TODO: 整形する必要あるかも？
     }
 
-
+    /**
+     * @author Naoto Nishida
+     */
     @RequestMapping(path = "/twitter_image_keyword", method = RequestMethod.GET)
     public List<String> collect_image_keywords_from_tweets(
             @RequestParam(name = "username", defaultValue = "CNN") String username,
@@ -98,6 +103,9 @@ public class ViewController {
 
     }
 
+    /**
+     * @author Naoto Nishida
+     */
     // コントローラは関数として呼び出すのはキツイっぽいのでとりま関数として取り出してる。。
     //TODO: TwitterControllerやNLUControllerから共通部分を分離して別クラスとして保持。
     private static QueryResult search_user(String username, long tweet_id) throws TwitterException {
@@ -199,6 +207,9 @@ public class ViewController {
     }
     //END:nakamura
 
+    /**
+     * @author Naoto Nishida
+     */
     //関数もおいちゃえ
     public static List<String> get_NLU_keywords(String username, long tweet_id) throws TwitterException {
         QueryResult result = search_user(username, tweet_id);
@@ -217,6 +228,9 @@ public class ViewController {
     }
 
 
+    /**
+     * @author Naoto Nishida
+     */
     public static List<String> get_image_keywords(String username, long tweet_id) throws Exception {
         QueryResult result = search_user(username, tweet_id);
         ArrayList<String> imageprocessing_results = new ArrayList<>();
