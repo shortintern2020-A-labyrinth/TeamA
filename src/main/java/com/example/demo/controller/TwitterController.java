@@ -18,7 +18,7 @@ public class TwitterController {
      * @author Naoto Nishida
      */
     @GetMapping("/search_keyword")
-    public QueryResult search_keyowrd(@RequestParam(name = "searchword", defaultValue = "チンチン") String searchword) throws TwitterException {
+    public QueryResult search_keyowrd(@RequestParam(name = "searchword", defaultValue = "judo") String searchword) throws TwitterException {
         // 初期化
         Twitter twitter = new TwitterFactory().getInstance();
         Query query = new Query(searchword);

@@ -24,16 +24,25 @@ public class HtmlController {
     @Autowired
     EmologService emologService;
 
+    /**
+     * @author Naoto Nishida
+     */
     @RequestMapping(path = "/", method = RequestMethod.GET)
     public String index() {
         return "friendlist";
     }
 
+    /**
+     * @author Naoto Nishida
+     */
     @RequestMapping(path = "/emologlist", method = RequestMethod.GET)
     public String emologlist() {
         return "emologlist";
     }
 
+    /**
+     * @author Naoto Nishida
+     */
 //この処理いる？バッチ処理できたらいらなそうな気がする。
     @RequestMapping(path = "/enter", method = RequestMethod.GET)
     public String crawling(
