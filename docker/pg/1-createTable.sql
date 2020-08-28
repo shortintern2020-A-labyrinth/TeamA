@@ -46,7 +46,7 @@ create table requestfriend (
                                create_at timestamp
 );
 
-
+/* BEGIN:nakamura */
 insert into users(name, mail, filterlevel) values
 ('ichigo.chocomint', 'ichigo@hoge.com', 1),
 ('banana.chocomint', 'banana@hoge.com', 2),
@@ -97,4 +97,6 @@ insert into users(name, mail, filterlevel) values
   ('banana.chocomint', 'hogehoge@hoge.com', 2),
   ('pinapple.chocomint', 'hogehogehoge@hoge.com', 3)
 ;
+
+/* END:nakamura */
 
