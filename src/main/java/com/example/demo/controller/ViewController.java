@@ -167,6 +167,7 @@ public class ViewController {
 
     }
 
+    //BEGIN:nakamura
     //emoji-javaを使ってキーワードから絵文字に変換
     @RequestMapping(path = "/convert/{keyword}", method = RequestMethod.GET)
     public String convert(
@@ -196,6 +197,7 @@ public class ViewController {
 //        return emologService.insert(user, friend, emoji);
         return emologService.insert(123, 456, "U+1F600");
     }
+    //END:nakamura
 
     //関数もおいちゃえ
     public static List<String> get_NLU_keywords(String username, long tweet_id) throws TwitterException {
