@@ -1,3 +1,4 @@
+//BEGIN:nakamura
 package com.example.demo.controller;
 
 import java.io.FileNotFoundException;
@@ -55,3 +56,4 @@ public class ImageController {
 
     }
 }
+//END:nakamura

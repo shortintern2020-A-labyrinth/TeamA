@@ -42,6 +42,7 @@ public class EmologService {
         return emologRepository.selectAll(user, friend);
     }
 
+    //BEGIN:nakamura
     public List<Emolog> insert(int user, int friend, String contents) throws ParseException {
         Emolog e = new Emolog();
         e.setId((int)Calendar.getInstance().getTimeInMillis());
@@ -53,6 +54,7 @@ public class EmologService {
         emologRepository.insert(e);
         return emologRepository.selectAll(user, friend);
     }
+    //END:nakamura
 
     public void createEmolog() throws Exception {
         List<Friend> friends = friendRepository.selectAllRecord();
