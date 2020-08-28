@@ -43,6 +43,4 @@ public class EmologController {
     public String chat(Model model){
         return "emologlist";
     }
-
-
 }

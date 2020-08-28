@@ -7,7 +7,7 @@ create table users (
 );
 
 create table sample (
-                        id serial primary key,
+  friendid serial primary key,
                         name varchar(30) not null,
                         mail varchar(50) not null,
                         filterlevel smallint
@@ -16,6 +16,7 @@ create table sample (
 create table friend (
                         id serial primary key,
                         userid INTEGER not null,
+                        friendid INTEGER not null,
                         name varchar(30) not null,
                         latestemolog varchar(30),
                         updated_at timestamp,

@@ -32,6 +32,10 @@ public class Friend implements Serializable {
 
     @NotNull
     @Size(max=30)
+    private Integer friendid;
+
+    @NotNull
+    @Size(max=30)
     private String name;
 
     @Max(30)
@@ -39,6 +43,6 @@ public class Friend implements Serializable {
 
     private LocalDateTime updated_at;
 
-    private Integer lasttweetid;
+    private Long lasttweetid;
 
 }
