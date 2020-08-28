@@ -7,10 +7,16 @@ import twitter4j.*;
 
 import java.io.IOException;
 
+/**
+ * @author Naoto Nishida
+ */
 @RestController
 @RequestMapping(path = "/twitter")
 public class TwitterController {
 
+    /**
+     * @author Naoto Nishida
+     */
     @GetMapping("/search_keyword")
     public QueryResult search_keyowrd(@RequestParam(name = "searchword", defaultValue = "チンチン") String searchword) throws TwitterException {
         // 初期化
@@ -27,6 +33,9 @@ public class TwitterController {
         return result;
     }
 
+    /**
+     * @author Naoto Nishida
+     */
     @RequestMapping(path = "/search_user", method = RequestMethod.GET)
     public QueryResult search_user(@RequestParam(name = "username", defaultValue = "CNN") String username,
                                     @RequestParam(name = "tweet_id", defaultValue = "1000000") long tweet_id

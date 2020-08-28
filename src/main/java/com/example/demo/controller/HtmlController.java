@@ -14,7 +14,9 @@ import twitter4j.TwitterException;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * @author Naoto Nishida
+ */
 @Controller
 @RequestMapping(path = "/")
 public class HtmlController {
