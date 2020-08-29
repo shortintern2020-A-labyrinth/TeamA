@@ -13,6 +13,9 @@ import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.List;
 
+/**
+ * @author Yuta Takayama
+ */
 @Repository
 public class EmologRepository {
 

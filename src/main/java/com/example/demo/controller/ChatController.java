@@ -21,6 +21,9 @@ import com.vdurmont.emoji.EmojiParser;
 import org.springframework.stereotype.Controller;
 
 //chatページの表示
+/**
+ * @author Yuta Takayama
+ */
 @Controller
 @RequestMapping(path = "/chat")
 public class ChatController {

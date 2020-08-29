@@ -8,7 +8,9 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 
-//public class DemoApplication implements CommandLineRunner {
+/**
+ * @author Yuta Takayama
+ */
 @SpringBootApplication
 @EnableScheduling
 public class DemoApplication implements CommandLineRunner {

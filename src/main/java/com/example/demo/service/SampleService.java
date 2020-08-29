@@ -9,6 +9,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+/**
+ * @author Yuta Takayama
+ */
 @Service
 public class SampleService {
 

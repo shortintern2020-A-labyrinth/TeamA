@@ -17,7 +17,9 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * @author Yuta Takayama
+ */
 @Controller
 @RequestMapping(path = "/emologlist")
 public class EmologController {

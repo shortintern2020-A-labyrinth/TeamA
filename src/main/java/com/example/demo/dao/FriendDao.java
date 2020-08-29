@@ -10,6 +10,9 @@ import org.seasar.doma.boot.ConfigAutowireable;
 
 import java.util.List;
 
+/**
+ * @author Yuta Takayama
+ */
 @Dao
 @ConfigAutowireable
 public interface FriendDao {

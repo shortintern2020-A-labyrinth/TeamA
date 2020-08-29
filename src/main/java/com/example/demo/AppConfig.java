@@ -10,6 +10,9 @@ import org.seasar.doma.jdbc.tx.LocalTransactionDataSource;
 import org.seasar.doma.jdbc.tx.LocalTransactionManager;
 import org.seasar.doma.jdbc.tx.TransactionManager;
 
+/**
+ * @author Yuta Takayama
+ */
 @SingletonConfig
 public class AppConfig implements Config {
 

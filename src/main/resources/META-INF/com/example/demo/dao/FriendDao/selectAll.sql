@@ -1,3 +1,6 @@
+--/**
+--* @author Yuta Takayama
+--*/
 select *
 from friend
 where userid = /* userid */1

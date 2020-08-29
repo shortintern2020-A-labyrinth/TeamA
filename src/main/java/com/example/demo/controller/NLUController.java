@@ -15,6 +15,11 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+/**
+ * @author Yuta Takayama
+ * 自然言語認識のテストのために作成したコード。
+ * 実際のプロダクトには使用していない。
+ */
 @RestController
 @RequestMapping(path = "/NLU")
 public class NLUController {

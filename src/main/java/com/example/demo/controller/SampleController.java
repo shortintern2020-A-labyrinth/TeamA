@@ -10,7 +10,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.List;
 
-
+/**
+ * @author Yuta Takayama
+ * バックエンドのテストのために作成したコード。
+ * 実際のプロダクトには使用していない。
+ */
 @RestController
 @RequestMapping(path = "/sample")
 public class SampleController {
