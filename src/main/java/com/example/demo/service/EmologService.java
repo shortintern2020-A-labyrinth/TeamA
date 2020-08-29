@@ -17,6 +17,9 @@ import java.text.ParseException;
 import java.time.LocalDateTime;
 import java.util.*;
 
+/**
+ * @author Yuta Takayama
+ */
 @Service
 public class EmologService {
 
@@ -56,16 +59,16 @@ public class EmologService {
     }
     //END:nakamura
 
+    /**
+     * @author Yuta Takayama
+     */
     public void createEmolog() throws Exception {
         List<Friend> friends = friendRepository.selectAllRecord();
 
-        //TODO　ここにEmolog生成処理記述
         List<Emolog> newEmologs = new ArrayList<Emolog>();
         LocalDateTime created_at = LocalDateTime.now();
         int count = 0;
         for (Friend friend : friends) {
-            //
-            //TODO: 「取得した最新のtweet_idを保存して次のバッチ処理ではそのtweet_id以降を取得」って処理がまだ出来てない。
             try {
                 QueryResult result = emologOutput.querySearch(friend.getName(), friend.getLasttweetid());
 
@@ -84,7 +87,7 @@ public class EmologService {
             //////////
             friend.setLatestemolog(emologStr);
             friend.setUpdated_at(created_at);
-            friend.setLasttweetid((int)result.getMaxId());
+            friend.setLasttweetid(result.getMaxId());
             Emolog e = new Emolog();
             e.setContents(emologStr);
             e.setFriendid(friend.getId());

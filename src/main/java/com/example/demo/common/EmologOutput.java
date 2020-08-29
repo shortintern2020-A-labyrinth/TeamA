@@ -14,6 +14,9 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+* @author Yuta Takayama
+*/
 public class EmologOutput {
 
     /** text to keyword

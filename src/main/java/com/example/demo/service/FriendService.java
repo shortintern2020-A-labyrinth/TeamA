@@ -7,6 +7,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * @author Yuta Takayama
+ */
 @Service
 public class FriendService {
 

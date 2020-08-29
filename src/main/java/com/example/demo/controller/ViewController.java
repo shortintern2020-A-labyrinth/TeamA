@@ -196,6 +196,9 @@ public class ViewController {
         }
     }
 
+    /**
+     * @author Yuta Takayama
+     */
     @RequestMapping(value="/emolog",method=RequestMethod.GET)
     public List<Emolog> insertEmolog(
             Integer user,

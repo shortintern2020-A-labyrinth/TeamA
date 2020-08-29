@@ -8,6 +8,9 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+/**
+ * @author Yuta Takayama
+ */
 @Repository
 public class FriendRepository {
 
