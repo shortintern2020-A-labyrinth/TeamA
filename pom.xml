@@ -16,7 +16,23 @@
 
 	<properties>
 		<java.version>11</java.version>
+		<doma.version>2.18.0</doma.version>
 	</properties>
+
+	<repositories>
+		<repository>
+			<id>twitter4j.org</id>
+			<name>twitter4j.org Repository</name>
+			<url>http://twitter4j.org/maven2</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+
 
 	<dependencies>
 		<dependency>
@@ -26,6 +42,16 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<!-- データベースアクセス -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<scope>runtime</scope>
 		</dependency>
 		<!-- Spring JDBC を使う -->
         <dependency>
@@ -48,6 +74,86 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+		<!-- emoji - java を使う -->
+		<dependency>
+			<groupId>com.vdurmont</groupId>
+			<artifactId>emoji-java</artifactId>
+			<version>4.0.0</version>
+		</dependency>
+		<!--web socket を使う
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-websocket</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-messaging</artifactId>
+			<version>4.2.4.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>2.7.3</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.7.3</version>
+		</dependency>-->
+		<dependency>
+			<groupId>org.seasar.doma.boot</groupId>
+			<artifactId>doma-spring-boot-starter</artifactId>
+			<version>1.2.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.seasar.doma.boot</groupId>
+			<artifactId>doma-spring-boot-core</artifactId>
+			<version>1.2.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.twitter4j</groupId>
+			<artifactId>twitter4j-core</artifactId>
+			<version>[4.0,)</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.ibm.watson/ibm-watson -->
+		<dependency>
+			<groupId>com.ibm.watson</groupId>
+			<artifactId>ibm-watson</artifactId>
+			<version>8.5.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/javax.validation/validation-api -->
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+			<version>2.0.1.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate.common</groupId>
+			<artifactId>hibernate-commons-annotations</artifactId>
+			<version>5.1.0.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>7.0.0.Alpha6</version>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.12</version>
+		</dependency>
+		<dependency>
+			<groupId>org.seasar.doma</groupId>
+			<artifactId>doma</artifactId>
+			<version>${doma.version}</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.vdurmont/emoji-java -->
+		<dependency>
+			<groupId>com.vdurmont</groupId>
+			<artifactId>emoji-java</artifactId>
+			<version>4.0.0</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -55,6 +161,11 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<folders>
+						<folder>src/main/resources/twitter4j.properties</folder>
+					</folders>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

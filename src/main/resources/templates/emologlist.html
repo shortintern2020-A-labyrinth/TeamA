@@ -1,0 +1,87 @@
+<!--西田担当分。Thymeleaf記述あたりのサポート-->
+<!DOCTYPE html>
+<html lang="jp" dir="ltr" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <title>エモログリストページ</title>
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+  </head>
+  <body>
+     <!-- 戻るボタンと名前の表示-->
+    <div class="header">
+      <ul class="header_ul">
+        <li>
+          <a href="friendlist"> <img th:src="@{images/arrow_left_24.png}" alt="backbutton"></a>
+        </li>
+        <li>
+          <div class="friend-name">
+            <p>hogeさん</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div id="wrap"><!-- メインコンテンツ-->
+      <div class="content">
+       <!-- 日ごとのエモログの一覧を表示-->
+       <div class="emolog-list">
+
+          <!-- 本当はjava でデータを取ってきてすべて表示　例を書く-->
+         <ul>
+         <ul class="friend_ul" th:each="emolog : ${emologs}">
+             <li>
+                 <a th:href="'../../chat/' + ${emolog.id}">
+                 <!--<p class="emolog-date" th:text="|${#dates.month(${emolog.created_at})} 月 ${#dates.day(${emolog.created_at})} 日|">8月18日<p>
+                 相手のエモログの表示-->
+                 <p class="emoji" th:text="${emolog.contents}" >&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;</p>
+                 <img th:src="@{/images/arrow.png}" alt="emolog_arrow">
+                </a>
+             </li>
+             <li>
+                 <a th:href="'../../chat/' + ${friend}">
+                     <!--<p class="emolog-date" th:text="|${#dates.month(${emolog.created_at})} 月 ${#dates.day(${emolog.created_at})} 日|">8月18日<p>
+                     相手のエモログの表示-->
+                     <p class="emoji" th:text="${friend}" >&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;</p>
+                 </a>
+             </li>
+             <!--静的サンプル表示部分-->
+<!--                <li><a href="chat">-->
+<!--                  <p class="emolog-date">8月18日<p>-->
+<!--              <p class="emoji">&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;</p>-->
+<!--              <img src="images/arrow.png" alt="emolog_arrow">-->
+<!--              </a>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--              <p class="emolog-date">8月17日<p>-->
+<!--              &lt;!&ndash;相手のエモログの表示&ndash;&gt;-->
+<!--              <p class="emoji">&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;</p>-->
+<!--              <img src="images/arrow.png" alt="emolog_arrow">-->
+<!--            </li>-->
+<!--            <li>-->
+<!--              <p class="emolog-date">8月16日<p>-->
+<!--              &lt;!&ndash;相手のエモログの表示&ndash;&gt;-->
+<!--              <p class="emoji">&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;</p>-->
+<!--              <img src="images/arrow.png" alt="emolog_arrow">-->
+<!--            </li>-->
+<!--            <li>-->
+<!--              <p class="emolog-date">8月15日<p>-->
+<!--              &lt;!&ndash;相手のエモログの表示&ndash;&gt;-->
+<!--              <p class="emoji">&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;&#x1f349;</p>-->
+<!--              <img src="images/arrow.png" alt="emolog_arrow">-->
+<!--            </li>-->
+          </ul>
+       </div>
+       <!-- ナビゲーションバーを表示-->
+       <nav class="global-nav">
+           <li><a href="home">Home</a></li>
+           <li><a href="friendlist">Talk</a></li>
+           <li><a href="setting">Setting</a></li>
+       </nav>
+     </div>
+    </div>
+    <footer>
+
+      <!--<small>(C)2020 Midori-no-tsume</small>-->
+    </footer>
+  </body>
+</html>

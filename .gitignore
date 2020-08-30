@@ -1,0 +1,9 @@
+target/
+*.iml
+.idea/
+demo.iml
+*.class
+src/main/resources/twitter4j.properties
+.gradle/
+.vscode
+.settings/
